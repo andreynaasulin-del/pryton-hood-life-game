@@ -1,0 +1,139 @@
+/* === MODULE INTEGRATION (Imports MUST be first) === */
+@import url('./core.css');
+@import url('./ds-components.css');
+@import url('./layout.css');
+@import url('./components.css');
+@import url('./modals.css');
+@import url('./login-cyber.css');
+@import url('./home.css');
+@import url('./club.css');
+@import url('./street.css');
+@import url('./prison.css');
+@import url('./casino.css');
+@import url('./doctor.css');
+@import url('./farm.css');
+@import url('./shop.css');
+@import url('./memory.css');
+@import url('./fx.css');
+@import url('./icons.css');
+@import url('./animations-pumped.css');
+@import url('./polish.css');
+@import url('./overrides.css');
+
+/**
+ * ========================================
+ * PRYTON OS: DESIGN SYSTEM FOUNDATION
+ * Atmosphere, Global Background & Typography
+ * Role: Senior UI/UX Designer
+ * ========================================
+ */
+
+/* === ARCHITECTURE: Global Variable Registry === */
+:root {
+    /* Dead Space Palette */
+    --bg-void: #050505;
+    /* Deep Void */
+    --neon-cyan: #00f0ff;
+    /* Primary HUD */
+    --alert-red: #ff2a2a;
+    /* Critical / Health */
+    --ds-gold: #ffae00;
+    /* Energy / Credits */
+    --glass-panel: rgba(10, 15, 20, 0.85);
+    /* Adaptive Glass */
+
+    /* Typography Registry */
+    --font-headers: 'Orbitron', sans-serif;
+    --font-main: 'Montserrat', sans-serif;
+}
+
+/* === BASE: Atmospheric Environment === */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--bg-void);
+    color: #ffffff;
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    position: relative;
+
+    /* Layered Background: Vignette & Glow */
+    background-image:
+        radial-gradient(circle at center, rgba(0, 240, 255, 0.04) 0%, transparent 70%),
+        radial-gradient(circle at center, transparent 30%, #000 100%);
+
+    /* CRT Flicker Animation */
+    animation: crt-flicker 0.15s infinite;
+}
+
+/* Scanlines Layer (Overlay) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0) 0px,
+            rgba(0, 0, 0, 0) 1px,
+            rgba(0, 240, 255, 0.05) 1px,
+            rgba(0, 240, 255, 0.05) 2px);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* === TYPOGRAPHY: Visual Identity === */
+h1,
+h2,
+h3,
+.glitch-text,
+.ds-heading {
+    font-family: var(--font-headers);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--neon-cyan);
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+p,
+span,
+div,
+button,
+input {
+    font-family: var(--font-main);
+}
+
+/* === UTILITIES: Material System === */
+.ds-panel-glass {
+    background: var(--glass-panel);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+/* === ANIMATIONS: Life Signals === */
+@keyframes crt-flicker {
+    0% {
+        opacity: 0.99;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.98;
+    }
+}

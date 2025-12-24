@@ -1,0 +1,222 @@
+/* ========================================= */
+/* 🚀 PUMPED ANIMATIONS (High Octane UI)     */
+/* ========================================= */
+
+/* --- 1. SMOOTH BASE --- */
+* {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease-out;
+}
+
+/* --- 2. VIEW TRANSITIONS --- */
+/* --- 2. VIEW TRANSITIONS (FAST FADE) --- */
+@keyframes fastFade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.view.view-active {
+    animation: fastFade 0.2s ease-out forwards;
+}
+
+/* --- 3. INTERACTIVE CARDS --- */
+.card,
+.action-card,
+.stat-item,
+.pryton-summary,
+.pryton-spirit-card,
+.doc-service-card,
+.shop-item {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    will-change: transform, box-shadow;
+}
+
+.card:hover,
+.action-card:hover,
+.doc-service-card:hover,
+.shop-item:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    z-index: 5;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.card:active,
+.action-card:active,
+.doc-service-card:active,
+.shop-item:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition-duration: 0.05s;
+}
+
+/* --- 4. BUTTONS & CONTROLS --- */
+button,
+.btn,
+.action-btn,
+.login-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Click Ripple Effect (CSS Only approximation) */
+button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+button:active:after {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    transition: 0s;
+}
+
+/* Pump Effect on Click */
+button:active {
+    transform: scale(0.98);
+}
+
+/* --- 5. PROGRESS BARS (SHEEN) --- */
+.stat-bar,
+.progress-bar,
+.timed-action-progress {
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-bar::after,
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-20deg) translateX(-150%);
+    animation: sheen 3s infinite;
+}
+
+@keyframes sheen {
+    0% {
+        transform: skewX(-20deg) translateX(-150%);
+    }
+
+    20% {
+        transform: skewX(-20deg) translateX(150%);
+    }
+
+    100% {
+        transform: skewX(-20deg) translateX(150%);
+    }
+}
+
+/* --- 6. TEXT FX --- */
+.highlight-text {
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    to {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 2px rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* --- 7. NOTIFICATIONS / TOASTS --- */
+@keyframes toastSlideIn {
+    0% {
+        transform: translateX(120%) scale(0.9);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateX(-5%) scale(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.toast {
+    animation: toastSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* --- 8. CRITICAL PULSE --- */
+.critical-pulse {
+    animation: critPulse 1s infinite;
+}
+
+@keyframes critPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+        border-color: rgba(239, 68, 68, 1);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+        border-color: rgba(239, 68, 68, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* --- 9. GOLDEN GLARE (For Money/Rich Items) --- */
+.gold-glare {
+    position: relative;
+    overflow: hidden;
+}
+
+.gold-glare::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 60%);
+    transform: scale(0);
+    transition: transform 0.5s ease-out;
+}
+
+.gold-glare:hover::before {
+    transform: scale(1);
+}
+
+/* --- 10. FLOATING ELEMENTS --- */
+.float-animation {
+    animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes floaty {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}

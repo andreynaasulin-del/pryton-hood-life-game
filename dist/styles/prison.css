@@ -1,0 +1,282 @@
+/* PRISON TAB v5.0 - INDUSTRIAL DECAY */
+
+.prison-layout-v5 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+    position: relative;
+    padding: 10px;
+    color: #f97316;
+    /* Rusty Orange */
+    font-family: 'Courier Prime', monospace;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+}
+
+.sepia-filter {
+    filter: sepia(0.5) contrast(1.2);
+}
+
+/* HEADER */
+.p-header-v5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f97316;
+    padding-bottom: 15px;
+}
+
+.ph-tag {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    letter-spacing: 2px;
+}
+
+.ph-title-v5 {
+    font-size: 2rem;
+    margin: 5px 0;
+    color: #f97316;
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+}
+
+.ph-timer {
+    text-align: right;
+    background: rgba(249, 115, 22, 0.1);
+    padding: 10px 20px;
+    border: 1px solid #f97316;
+}
+
+.ph-timer label {
+    display: block;
+    font-size: 0.6rem;
+    opacity: 0.7;
+}
+
+.timer-val {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* MAIN ROW */
+.p-main-row-v5 {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 20px;
+    flex: 1;
+    min-height: 0;
+}
+
+/* SIDEBAR HUD */
+.p-sidebar-v5 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.p-labels-v5 {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pl-item label {
+    font-size: 0.6rem;
+    opacity: 0.6;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.p-mini-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+.p-mini-bar .fill {
+    height: 100%;
+    background: #f97316;
+}
+
+.p-mini-bar .fill.yellow {
+    background: #fbbf24;
+}
+
+.p-mini-bar .fill.magenta {
+    background: #ff00ff;
+}
+
+/* CELLMATE BOX */
+.cellmate-box {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.cm-body {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    line-height: 1.3;
+}
+
+.ghost-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.2;
+}
+
+.ghost-icon.active {
+    opacity: 1;
+    color: #ff00ff;
+    animation: p-float 3s infinite ease-in-out;
+}
+
+@keyframes p-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ACTIONS GRID */
+.actions-grid-v5 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.p-action-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.p-action-card:hover {
+    background: rgba(249, 115, 22, 0.1);
+    border-color: #f97316;
+}
+
+.pa-name {
+    font-weight: 900;
+    font-size: 0.9rem;
+}
+
+.pa-desc {
+    font-size: 0.65rem;
+    opacity: 0.6;
+    margin-top: 4px;
+}
+
+.lawyer-card {
+    border-color: #fbbf24;
+    color: #fbbf24;
+}
+
+/* ALERTS */
+.alert-box.danger {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ef4444;
+    font-weight: bold;
+    animation: p-blink 1s infinite;
+}
+
+@keyframes p-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* FOOTER AMBIENT */
+.ambient-viz {
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 50px;
+}
+
+.viz-drop {
+    width: 2px;
+    height: 4px;
+    background: #f97316;
+    opacity: 0.3;
+    animation: p-drop 2s infinite ease-in;
+}
+
+@keyframes p-drop {
+    0% {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+.viz-drop:nth-child(even) {
+    animation-delay: 0.5s;
+}
+
+.viz-drop:nth-child(3n) {
+    animation-delay: 1.2s;
+}
+
+/* MODAL FOR INTERROGATION */
+.interrogation-dialog {
+    padding: 20px;
+    color: #f97316;
+}
+
+.dialog-text {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.dialog-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* GLOBAL NAV LOCKDOWN */
+.app-nav.lockdown-active button:not([data-view="prison"]) {
+    opacity: 0.3;
+    pointer-events: none;
+    filter: grayscale(1);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-nav.lockdown-active button[data-view="prison"] {
+    border-color: #f97316;
+    animation: p-blink 2s infinite;
+}

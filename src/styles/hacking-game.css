@@ -1,0 +1,236 @@
+/* =========================================
+   🔓 HACKING GAME MINIGAME STYLES
+   Terminal Hacker Aesthetic
+   ========================================= */
+
+.hacking-game {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    border: 2px solid #3b82f6;
+    border-radius: 12px;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+}
+
+.hack-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.terminal-title {
+    color: #3b82f6;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.attempts-display {
+    color: #f59e0b;
+    font-weight: bold;
+}
+
+.hack-terminal {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.terminal-output {
+    min-height: 100px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.system-msg {
+    color: #94a3b8;
+    margin: 5px 0;
+    padding: 3px 0;
+}
+
+.system-msg.success {
+    color: #10b981;
+}
+
+.system-msg.error {
+    color: #ef4444;
+}
+
+.hint {
+    color: #3b82f6;
+    font-size: 0.75rem;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.code-input-area {
+    text-align: center;
+}
+
+.code-display {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.code-slot {
+    width: 50px;
+    height: 60px;
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.2s;
+}
+
+.code-slot.filled {
+    background: rgba(59, 130, 246, 0.3);
+    border-color: #10b981;
+}
+
+.symbol-keyboard {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.symbol-btn {
+    padding: 10px;
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid #3b82f6;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.symbol-btn:hover {
+    background: rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+.symbol-btn:active {
+    transform: scale(0.95);
+}
+
+.hack-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.hack-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.clear-btn {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid #ef4444;
+}
+
+.clear-btn:hover {
+    background: rgba(239, 68, 68, 0.3);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #10b981, #3b82f6);
+    color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.hack-history {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.history-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    margin: 5px 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    border-left: 3px solid #64748b;
+}
+
+.history-code {
+    display: flex;
+    gap: 5px;
+    font-weight: bold;
+}
+
+.history-symbol {
+    width: 25px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.history-symbol.correct {
+    background: rgba(16, 185, 129, 0.3);
+    color: #10b981;
+    border: 1px solid #10b981;
+}
+
+.history-symbol.present {
+    background: rgba(245, 158, 11, 0.3);
+    color: #f59e0b;
+    border: 1px solid #f59e0b;
+}
+
+.history-symbol.wrong {
+    background: rgba(100, 116, 139, 0.2);
+    color: #64748b;
+    border: 1px solid #64748b;
+}
+
+.history-feedback {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}

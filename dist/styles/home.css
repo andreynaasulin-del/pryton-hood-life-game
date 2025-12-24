@@ -1,0 +1,260 @@
+/**
+ * ========================================
+ * HOME TAB V8: HEAVY INDUSTRIAL (RUSSIAN)
+ * Role: Senior UI Artist & Visual Density Lead
+ * ========================================
+ */
+
+:root {
+    --bunk-amber: #ff9d00;
+    --bunk-border: rgba(255, 157, 0, 0.2);
+    --bunk-bg: #0a0a0a;
+    --bunk-hazard: repeating-linear-gradient(-45deg,
+            rgba(255, 157, 0, 0.05),
+            rgba(255, 157, 0, 0.05) 10px,
+            rgba(0, 0, 0, 0.4) 10px,
+            rgba(0, 0, 0, 0.4) 20px);
+}
+
+.habitation-deck.industrial-mode.heavy-vfx {
+    padding: 30px;
+    height: calc(100vh - 160px);
+    overflow-y: auto;
+    background-color: #020202;
+    background-image:
+        linear-gradient(rgba(255, 157, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 157, 0, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    position: relative;
+}
+
+/* === BUNK PANELS (DENSE & BOLTED) === */
+.bunk-panel.ds-panel-glass {
+    background: rgba(15, 15, 15, 0.9);
+    border: 2px solid var(--bunk-border);
+    box-shadow:
+        inset 0 0 40px #000,
+        0 15px 40px rgba(0, 0, 0, 0.9);
+    position: relative;
+    padding: 25px;
+    /* Technical Grid Overlay */
+    background-image:
+        linear-gradient(45deg, rgba(255, 255, 255, 0.01) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0.01) 75%, transparent 75%, transparent);
+    background-size: 4px 4px;
+}
+
+/* BOLTS (CORNER ACCENTS) */
+.bunk-panel::before,
+.bunk-panel::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--bunk-amber);
+    opacity: 0.3;
+}
+
+.bunk-panel::before {
+    top: 5px;
+    left: 5px;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.bunk-panel::after {
+    bottom: 5px;
+    right: 5px;
+    border-left: 0;
+    border-top: 0;
+}
+
+/* TECH NOISE */
+.tech-noise {
+    position: absolute;
+    font-size: 8px;
+    color: var(--bunk-amber);
+    opacity: 0.3;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    pointer-events: none;
+}
+
+.tech-noise.top-mid {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* === HEAVY SLOTS (DEEP CONTAINERS) === */
+.mod-grid-bunk {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+    padding: 15px;
+    background: #050505;
+    border: 2px solid #111;
+}
+
+.mod-slot-bunk {
+    min-height: 100px;
+    max-height: 100px;
+    background: #080808;
+    border: 2px solid #222;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.slot-depth {
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 25px #000;
+}
+
+.mod-slot-bunk i {
+    width: 28px;
+    height: 28px;
+    color: #444;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.mod-label-bunk {
+    position: absolute;
+    bottom: 5px;
+    font-size: 10px !important;
+    color: #555;
+    font-weight: 700;
+    text-align: center;
+}
+
+.active-slot {
+    border-color: var(--bunk-amber);
+    background: radial-gradient(circle at center, rgba(255, 157, 0, 0.1) 0%, #080808 100%);
+}
+
+.active-slot i {
+    color: var(--bunk-amber);
+    filter: drop-shadow(0 0 15px var(--bunk-amber));
+}
+
+.active-slot .mod-label-bunk {
+    color: var(--bunk-amber);
+}
+
+.blocked-slot {
+    background: var(--bunk-hazard);
+}
+
+.blocked-tag-rus {
+    color: #ef4444;
+    font-size: 10px;
+    font-weight: 900;
+    margin-top: 3px;
+}
+
+.blink-red {
+    color: #ef4444 !important;
+    animation: ds-blink-heavy 1.5s infinite;
+}
+
+@keyframes ds-blink-heavy {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 10px #ef4444);
+    }
+}
+
+/* === BUTTON-MECHANISMS (ACTION MODULE) === */
+.bunk-toggle {
+    background: #151515;
+    border: 1px solid #333;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.main-btn-bunk {
+    border-left: 6px solid #3b82f6;
+    /* Blue for sleep */
+    padding: 20px;
+}
+
+.main-btn-bunk:hover {
+    background: #1a1a1a;
+    box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.main-btn-bunk i {
+    font-size: 2rem;
+    color: #3b82f6;
+}
+
+.mini-btn-bunk.food-block {
+    border-left: 6px solid #fbbf24;
+}
+
+.mini-btn-bunk.clean-block {
+    border-left: 6px solid #34d399;
+}
+
+.mini-btn-bunk:hover {
+    background: #1a1a1a;
+}
+
+.mini-status {
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    font-size: 7px;
+    color: #555;
+    letter-spacing: 1px;
+}
+
+/* === FINANCIAL CHART FX === */
+.sparkline-container-bunk {
+    height: 60px;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sparkline-rust {
+    width: 100%;
+    height: 100%;
+}
+
+.sparkline-line-rust {
+    stroke: var(--bunk-amber);
+    stroke-width: 2;
+    fill: none;
+    filter: drop-shadow(0 0 8px var(--bunk-amber));
+}
+
+.sparkline-fill-rust {
+    display: none;
+    /* Убираем заливку */
+}
+
+/* === TYPOGRAPHY & AMBER GLOW === */
+.amber-glow {
+    color: var(--bunk-amber);
+    text-shadow:
+        0 0 10px rgba(255, 157, 0, 0.4),
+        0 0 2px #fff;
+}
+
+.orbitron-text {
+    font-family: 'Orbitron', sans-serif !important;
+    letter-spacing: 1px;
+}

@@ -1,0 +1,126 @@
+
+> pryton-game@4.0.0 lint
+> eslint .
+
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/scripts/dev.js
+  35:53  error  Unnecessary escape character: \/  no-useless-escape
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/scripts/replace-emojis.js
+  142:71  error  Unnecessary escape character: \/  no-useless-escape
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/server.js
+    6:8   warning  'path' is defined but never used                  no-unused-vars
+   28:7   warning  '__filename' is assigned a value but never used   no-unused-vars
+   96:10  warning  'validateRegistration' is defined but never used  no-unused-vars
+  411:13  warning  'message' is assigned a value but never used      no-unused-vars
+  666:7   warning  'isWin' is assigned a value but never used        no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/main.js
+  14:10  warning  'dialogueSystem' is defined but never used  no-unused-vars
+  15:10  warning  'eventSystem' is defined but never used     no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/action-system.js
+  5:10  warning  'toastManager' is defined but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/auth.js
+  22:16  warning  'error' is defined but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/dialogue-system.js
+    2:21  warning  'NPCS' is defined but never used            no-unused-vars
+  340:15  warning  'state' is assigned a value but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/doctor-system.js
+  365:11  warning  'isLowAdequacy' is assigned a value but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/event-system.js
+  119:21  warning  'state' is defined but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/games/Blackjack.js
+  145:13  warning  'dScore' is assigned a value but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/games/Roulette.js
+  279:15  warning  'rotation' is assigned a value but never used       no-unused-vars
+  340:38  warning  'isGhostActive' is assigned a value but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/games/Slots.js
+    2:10  warning  'CASINO_PROGRESSION' is defined but never used          no-unused-vars
+    5:5   warning  'casinoProgression' is assigned a value but never used  no-unused-vars
+    6:5   warning  'spiritSystem' is assigned a value but never used       no-unused-vars
+  208:28  warning  'isGhost' is defined but never used                     no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/games/Thimbles.js
+  280:15  warning  'centerX' is assigned a value but never used  no-unused-vars
+  281:15  warning  'centerY' is assigned a value but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/prison-system-v2.js
+     3:10  warning  'actionSystem' is defined but never used            no-unused-vars
+   460:11  warning  'schedule' is assigned a value but never used       no-unused-vars
+   524:11  warning  'nextRank' is assigned a value but never used       no-unused-vars
+   532:11  warning  'daysServed' is assigned a value but never used     no-unused-vars
+   845:11  warning  'prison' is assigned a value but never used         no-unused-vars
+  1037:22  warning  'prison' is defined but never used                  no-unused-vars
+  1062:11  warning  'sellableItems' is assigned a value but never used  no-unused-vars
+  1527:11  warning  'playerHP' is assigned a value but never used       no-unused-vars
+  1580:11  warning  'prison' is assigned a value but never used         no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/spirit-system.js
+   21:20  warning  'stage' is defined but never used  no-unused-vars
+  450:14  warning  'e' is defined but never used      no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/tabs/CasinoTab.js
+  58:19  warning  'backBtn' is assigned a value but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/tabs/ClubTab.js
+     2:10  warning  'actionSystem' is defined but never used           no-unused-vars
+  1165:15  warning  'collabTracks' is assigned a value but never used  no-unused-vars
+  1474:15  warning  'cash' is assigned a value but never used          no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/tabs/DoctorTab.js
+    3:10  warning  'toastManager' is defined but never used         no-unused-vars
+    4:10  warning  'GameStorage' is defined but never used          no-unused-vars
+  136:39  warning  'isNegative' is assigned a value but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/tabs/FarmTab.js
+  2:10  warning  'toastManager' is defined but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/tabs/HomeTab.js
+     4:10  warning  'dialogueSystem' is defined but never used   no-unused-vars
+     5:10  warning  'npcSystem' is defined but never used        no-unused-vars
+     6:23  warning  'QUESTS' is defined but never used           no-unused-vars
+     8:30  warning  'getHomeEvent' is defined but never used     no-unused-vars
+   522:20  warning  'container' is defined but never used        no-unused-vars
+   787:20  warning  'state' is defined but never used            no-unused-vars
+  1255:23  warning  'key' is defined but never used              no-unused-vars
+  1390:15  warning  'energy' is assigned a value but never used  no-unused-vars
+  1391:15  warning  'health' is assigned a value but never used  no-unused-vars
+  1392:15  warning  'hunger' is assigned a value but never used  no-unused-vars
+  1570:15  warning  'state' is assigned a value but never used   no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/tabs/MemoryTab.js
+  2:33  warning  'YEAR_LENGTH' is defined but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/tabs/PrisonTab.js
+  1:10  warning  'gameState' is defined but never used     no-unused-vars
+  3:10  warning  'toastManager' is defined but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/tabs/ShopTab.js
+  8:17  warning  'getItem' is defined but never used  no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/tabs/StreetTab.js
+   2:10   warning  'actionSystem' is defined but never used  no-unused-vars
+   4:10   warning  'questSystem' is defined but never used   no-unused-vars
+  41:92   warning  's' is defined but never used             no-unused-vars
+  42:83   warning  's' is defined but never used             no-unused-vars
+  44:96   warning  's' is defined but never used             no-unused-vars
+  45:90   warning  's' is defined but never used             no-unused-vars
+  46:103  warning  's' is defined but never used             no-unused-vars
+  47:90   warning  's' is defined but never used             no-unused-vars
+  48:91   warning  's' is defined but never used             no-unused-vars
+
+/Users/ozgeyalnizoglu/Desktop/МОИ ПРОЕКТЫ ОПАСНА НЕ ЗАХОДИТЬ/вайбкодинг наработки/pryton game 4.0/src/scripts/modules/ui-manager.js
+  5:10  warning  'doctorSystem' is defined but never used  no-unused-vars
+  8:10  warning  'GameStorage' is defined but never used   no-unused-vars
+
+✖ 69 problems (2 errors, 67 warnings)
+

@@ -1,0 +1,467 @@
+/* ========================================= */
+/* ✨ PRYTON OS: PREMIUM POLISH & EFFECTS    */
+/* ========================================= */
+
+:root {
+    --premium-glow: 0 0 20px rgba(0, 212, 255, 0.4);
+    --premium-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --gold-glow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+/* 📜 CUSTOM SCROLLBAR (INDUSTRIAL) */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--holo-cyan, #00d4ff), var(--holo-teal, #00a8cc));
+    border-radius: 2px;
+}
+
+/* 📺 GLOBAL NOIR OVERLAYS (Scanlines + Grain) */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    /* Scanlines */
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.1) 50%);
+    background-size: 100% 4px;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.15;
+}
+
+/* FILM GRAIN EFFECT */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -100%;
+    background: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.06;
+    z-index: 9998;
+    pointer-events: none;
+    animation: noise 0.2s infinite;
+}
+
+@keyframes noise {
+    0% {
+        transform: translate(0, 0)
+    }
+
+    10% {
+        transform: translate(-1%, -1%)
+    }
+
+    20% {
+        transform: translate(1%, 1%)
+    }
+
+    30% {
+        transform: translate(-2%, -2%)
+    }
+
+    40% {
+        transform: translate(2%, 2%)
+    }
+
+    50% {
+        transform: translate(-1%, 1%)
+    }
+
+    60% {
+        transform: translate(1%, -1%)
+    }
+
+    70% {
+        transform: translate(2%, -2%)
+    }
+
+    80% {
+        transform: translate(-2%, 2%)
+    }
+
+    90% {
+        transform: translate(-1%, -1%)
+    }
+
+    100% {
+        transform: translate(0, 0)
+    }
+}
+
+/* 🔦 VIGNETTE */
+.app-container::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+    z-index: 9997;
+}
+
+/* 📊 HEADER STAT BARS (DEAD SPACE STYLE) */
+.header-bars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.stat-bar {
+    height: 12px !important;
+    background: rgba(0, 20, 30, 0.8) !important;
+    border: 1px solid rgba(0, 212, 255, 0.2) !important;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 95% 100%, 0 100%);
+}
+
+.bar-fill {
+    height: 100%;
+    transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.health .bar-fill {
+    background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+.energy .bar-fill {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.hunger .bar-fill {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.mood .bar-fill {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.bar-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    pointer-events: none;
+    letter-spacing: 1px;
+}
+
+/* 💎 ADVANCED GLASSMORPHISM */
+.home-layout-v3 section,
+.glass-panel,
+.holo-panel,
+.c-module,
+.p-header,
+.doc-card,
+.action-card,
+.shop-item,
+.quest-row {
+    background: rgba(10, 15, 25, 0.7) !important;
+    backdrop-filter: blur(12px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+    border: var(--glass-border) !important;
+    box-shadow: var(--premium-shadow);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.home-layout-v3 section:hover,
+.glass-panel:hover,
+.action-card:hover,
+.shop-item:hover,
+.quest-row:hover {
+    transform: translateY(-4px) !important;
+    border-color: var(--holo-cyan, #00d4ff) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px var(--holo-cyan-dim, rgba(0, 212, 255, 0.2)) !important;
+}
+
+/* 🚀 HERO MODULE REFINEMENT */
+.hero-module {
+    border-top: 4px solid var(--holo-cyan) !important;
+}
+
+.hm-btn {
+    border: 1px solid rgba(0, 212, 255, 0.2) !important;
+    background: rgba(0, 212, 255, 0.05) !important;
+    color: var(--holo-cyan) !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: all 0.2s;
+}
+
+.hm-btn:hover {
+    background: var(--holo-cyan) !important;
+    color: #000 !important;
+    box-shadow: 0 0 20px var(--holo-cyan) !important;
+}
+
+/* 👻 SPIRIT MODULE REFINEMENT */
+.spirit-module.state-warning {
+    border-color: #ef4444 !important;
+    animation: alert-flicker 2s infinite;
+}
+
+@keyframes alert-flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+        border-color: rgba(239, 68, 68, 0.5);
+    }
+}
+
+/* 📋 QUEST ROW REFINEMENT */
+.quest-row {
+    border-left: 4px solid var(--holo-cyan) !important;
+    background: rgba(0, 212, 255, 0.02) !important;
+}
+
+.qr-obj.done {
+    text-decoration: line-through;
+    opacity: 0.5;
+    color: #34d399;
+}
+
+/* 🚀 LOADING SCREEN RE-DESIGN */
+.loading-screen {
+    background: radial-gradient(circle at center, #0a1f2b 0%, #020508 100%) !important;
+    perspective: 1000px;
+}
+
+.loading-inner {
+    transform: rotateX(10deg);
+}
+
+.loading-title {
+    font-family: var(--font-holo);
+    color: var(--holo-cyan);
+    text-shadow: 0 0 20px var(--holo-cyan-glow);
+    letter-spacing: 0.3em;
+}
+
+/* ⚡ SPIRIT DISTORTION (For Ghost Luck) */
+.ghost-distortion {
+    animation: spiritGlow 0.2s infinite alternate, tremor 0.1s infinite;
+    filter: sepia(0.5) contrast(1.2) brightness(1.1);
+}
+
+@keyframes spiritGlow {
+    from {
+        filter: drop-shadow(0 0 5px rgba(0, 255, 136, 0.5));
+    }
+
+    to {
+        filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.8));
+    }
+}
+
+@keyframes tremor {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(1px, -1px);
+    }
+
+    50% {
+        transform: translate(-1px, 1px);
+    }
+
+    75% {
+        transform: translate(1px, 1px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* 🃏 CASINO: LUXURY GOLD UPGRADE */
+.casino-layout-v3 .game-card-v3 {
+    border: 1px solid rgba(251, 191, 36, 0.1) !important;
+    background: linear-gradient(135deg, rgba(30, 25, 15, 0.8), rgba(10, 10, 10, 0.9)) !important;
+}
+
+.casino-layout-v3 .game-card-v3:hover {
+    border-color: #fbbf24 !important;
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.2);
+    background: linear-gradient(135deg, rgba(50, 40, 20, 0.8), rgba(20, 20, 20, 0.9)) !important;
+}
+
+.fx-gold-text {
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.6) !important;
+}
+
+/* 🎥 PRISON: MONITOR DEPTH */
+.prison-monitor {
+    border-radius: 20px;
+    box-shadow:
+        inset 0 0 50px rgba(0, 0, 0, 1),
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 0 2px rgba(255, 255, 255, 0.05);
+    background: #000 !important;
+}
+
+.monitor-overlay {
+    background:
+        radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.4) 100%),
+        repeating-linear-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 1px, rgba(0, 255, 0, 0.02) 2px, rgba(0, 255, 0, 0.02) 3px);
+}
+
+/* 🔘 BUTTON REINFORCEMENT */
+.holo-btn,
+.pa-btn,
+.ex-btn,
+.ds-btn,
+.hm-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+.holo-btn::before,
+.ds-btn::before,
+.hm-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: 0.5s;
+}
+
+.holo-btn:hover::before,
+.ds-btn:hover::before,
+.hm-btn:hover::before {
+    left: 100%;
+}
+
+/* 💡 MICRO-GLOWS */
+.stat-item:hover,
+.npc-intel-card:hover {
+    text-shadow: 0 0 8px currentColor;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* 🛡️ SYSTEM TERMINAL LOOK */
+.lp-feed,
+.pd-speech,
+.m-scroll {
+    border-left: 2px solid var(--holo-cyan);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+/* ⚡ TAB NAVIGATION REFINEMENT */
+.app-tab.active {
+    background: linear-gradient(180deg, rgba(0, 212, 255, 0.15) 0%, transparent 100%) !important;
+    border-top: 2px solid var(--holo-cyan) !important;
+    box-shadow: inset 0 10px 20px rgba(0, 212, 255, 0.05);
+}
+
+
+.app-tab:hover {
+    filter: brightness(1.2);
+}
+
+/* 📋 QUEST VIEW V4 REFINEMENT */
+.quest-view-v4 {
+    padding: 10px 0;
+}
+
+.quest-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 2px solid var(--holo-cyan);
+}
+
+.quest-objectives-v4 {
+    background: rgba(0, 212, 255, 0.03);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    padding: 20px;
+    position: relative;
+}
+
+.obj-hdr {
+    font-family: var(--font-holo);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--holo-cyan);
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.obj-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    color: #fff;
+    transition: all 0.2s;
+}
+
+.obj-row i {
+    width: 16px;
+    height: 16px;
+    color: var(--holo-cyan);
+    filter: drop-shadow(0 0 5px var(--holo-cyan));
+}
+
+.obj-row.completed {
+    opacity: 0.5;
+    color: #34d399;
+}
+
+.obj-row.completed i {
+    color: #34d399;
+    filter: none;
+}
+
+/* ⚡ ACTION ANIMATIONS */
+.pulse-action {
+    animation: actionPulse 2s infinite ease-in-out;
+}
+
+@keyframes actionPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+        filter: brightness(1.3);
+    }
+}

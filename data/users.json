@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1763242100902",
+    "username": "duh",
+    "email": "andrey.naasulin@gmail.com",
+    "password": "$2a$12$Ven4EORkKteaybk7BmOjq.Zn8NpVIm67mZ5H.VOKooxDTHUFliqea",
+    "createdAt": "2025-11-15T21:28:20.902Z",
+    "telegramId": null
+  },
+  {
+    "id": "1763242775087",
+    "username": "duh123",
+    "email": "andrey.naasulin@gmail.com",
+    "password": "$2a$12$PwP0rK0gpox.wCneTLLoauwxag2FT5PRNrG./0t0R5zYxY3bhi7yG",
+    "createdAt": "2025-11-15T21:39:35.087Z",
+    "telegramId": null
+  },
+  {
+    "id": "1763402285267",
+    "username": "test",
+    "email": "test@example.com",
+    "password": "$2a$12$HeRmzQd8UXHHn6Cl8sbG4.3Qfxe7An5zjHUKOgP8Nw5efmu5pwuge",
+    "createdAt": "2025-11-17T17:58:05.267Z",
+    "telegramId": null
+  }
+]

@@ -1,0 +1,248 @@
+/* CLINICAL HORROR - Doctor Tab Aesthetics */
+.clinical-layout-v5 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    color: #e2e8f0;
+    font-family: 'Courier New', Courier, monospace;
+    background: #0a0f18;
+    /* Void Blue */
+    position: relative;
+    overflow: hidden;
+}
+
+.doctor-active {
+    background: radial-gradient(circle at center, #1e293b 0%, #0a0f18 100%);
+}
+
+/* Sterile Flicker Effect */
+.clinical-flicker {
+    animation: sterile-flicker 8s infinite;
+}
+
+@keyframes sterile-flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    22%,
+    24%,
+    55% {
+        opacity: 0.8;
+    }
+}
+
+/* DOCTOR HEADER */
+.d-header-v5 {
+    padding: 20px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.dh-title-v5 {
+    font-size: 2rem;
+    color: #38bdf8;
+    /* Medical Blue */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+/* SECTION GRID */
+.d-grid-v5 {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+    padding: 0 20px;
+    flex: 1;
+    min-height: 0;
+}
+
+/* THERAPY BOX */
+.therapy-panel-v5 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.therapy-monitor {
+    height: 200px;
+    background: #000;
+    border: 2px solid #38bdf8;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.monitor-wave {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(56, 189, 248, 0.1) 40px, rgba(56, 189, 248, 0.1) 80px);
+    animation: wave-move 10s linear infinite;
+}
+
+@keyframes wave-move {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.therapy-status {
+    z-index: 2;
+    text-align: center;
+}
+
+.therapy-status .val {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+/* CLINIC ACTIONS */
+.clinic-actions-v5 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.c-action-card {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.c-action-card:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: #38bdf8;
+}
+
+/* IMPLANTS STORE */
+.implants-panel-v5 {
+    background: rgba(15, 23, 42, 0.8);
+    border-left: 1px solid rgba(148, 163, 184, 0.2);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.implants-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.implant-card {
+    padding: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    background: rgba(30, 41, 59, 0.3);
+    font-size: 0.8rem;
+}
+
+.implant-card.purchased {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.implant-card .name {
+    font-weight: bold;
+    color: #38bdf8;
+    margin-bottom: 4px;
+}
+
+.implant-card .perks {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.implant-card .cost {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #fbbf24;
+}
+
+/* PSYCHOSIS OVERLAY */
+.psychosis-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px) invert(1);
+    z-index: 9999;
+    display: none;
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+
+.psychosis-overlay.active {
+    display: block;
+    animation: psychosis-shake 0.1s infinite;
+}
+
+@keyframes psychosis-shake {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(2px, 2px);
+    }
+
+    50% {
+        transform: translate(-2px, 2px);
+    }
+
+    75% {
+        transform: translate(-2px, -2px);
+    }
+
+    100% {
+        transform: translate(2px, -2px);
+    }
+}
+
+.voices-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.voice-text {
+    position: absolute;
+    color: red;
+    font-family: 'Courier New';
+    font-weight: bold;
+    font-size: 1.5rem;
+    opacity: 0.5;
+    white-space: nowrap;
+}

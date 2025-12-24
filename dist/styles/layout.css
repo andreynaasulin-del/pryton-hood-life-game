@@ -1,0 +1,579 @@
+/**
+ * ========================================
+ * LAYOUT: v4.0 PREMIUM TACTICAL
+ * High-Fidelity Industrial Sci-Fi Structure
+ * ========================================
+ */
+
+/* === APP CONTAINER === */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 100%;
+    margin: 0 auto;
+    background: var(--ds-void);
+    animation: ds-breathing 4s infinite ease-in-out;
+    position: relative;
+    border-left: 2px solid rgba(0, 240, 255, 0.05);
+    border-right: 2px solid rgba(0, 240, 255, 0.05);
+}
+
+@keyframes ds-breathing {
+
+    0%,
+    100% {
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9);
+        border-color: rgba(0, 240, 255, 0.05);
+    }
+
+    50% {
+        box-shadow: inset 0 0 60px rgba(0, 240, 255, 0.02);
+        border-color: rgba(0, 240, 255, 0.1);
+    }
+}
+
+/* === TACTICAL HEADER (LIFE SUPPORT UNIT) === */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin: 10px 15px 20px;
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid var(--neon-cyan);
+    padding: 12px 25px;
+    backdrop-filter: blur(15px) saturate(150%);
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.95),
+        0 0 25px rgba(0, 240, 255, 0.1);
+    border-radius: 0 0 15px 15px;
+    transition: border-color 0.4s ease;
+}
+
+.app-header.damaged {
+    border-color: var(--alert-red);
+    animation: header-alert-pulse 0.5s infinite alternate;
+}
+
+@keyframes header-alert-pulse {
+    from {
+        box-shadow: 0 0 5px var(--alert-red);
+    }
+
+    to {
+        box-shadow: 0 0 30px var(--alert-red);
+    }
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.game-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 15px var(--neon-cyan);
+    margin: 0;
+}
+
+/* Digital Scoreboard Stats */
+.header-stats {
+    display: flex;
+    gap: 0;
+    background: rgba(20, 20, 20, 0.5);
+    padding: 2px;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.header-stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 18px;
+    position: relative;
+    border-right: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.header-stat:last-child {
+    border-right: none;
+}
+
+.header-stat i {
+    width: 14px;
+    height: 14px;
+    color: var(--neon-cyan);
+    opacity: 0.8;
+}
+
+.header-stat .stat-value {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.header-stat.cash .stat-value {
+    color: var(--ds-gold);
+    text-shadow: 0 0 15px rgba(255, 174, 0, 0.4);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.header-stat.cash.pulse .stat-value {
+    transform: scale(1.2);
+    color: #fff;
+}
+
+/* Vital Bars architecture */
+.stat-bars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.stat-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-bar-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+}
+
+.stat-bar-label i {
+    width: 18px;
+    height: 18px;
+    animation: ds-icon-pulse 2s infinite ease-in-out;
+}
+
+.stat-bar-item[title="Здоровье"] i {
+    color: var(--alert-red);
+    animation-duration: 0.8s;
+}
+
+.stat-bar-item[title="Энергия"] i {
+    color: var(--neon-cyan);
+    animation-duration: 2s;
+}
+
+.stat-bar-item[title="Сытость"] i {
+    color: #34d399;
+}
+
+.stat-bar-item[title="Настроение"] i {
+    color: var(--ds-gold);
+}
+
+.stat-bar-label span {
+    display: none;
+    /* Hide percents as requested */
+}
+
+.stat-bar {
+    flex: 1;
+    height: 12px;
+    background: rgba(10, 15, 20, 0.8);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+    transform: skewX(-15deg);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    width: 100%;
+    transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    /* Segmented Look */
+    background-image: repeating-linear-gradient(90deg,
+            transparent,
+            transparent 8px,
+            rgba(0, 0, 0, 0.3) 8px,
+            rgba(0, 0, 0, 0.3) 10px);
+}
+
+/* Color Coding */
+.stat-bar-item[title="Здоровье"] .stat-bar-fill {
+    background-color: var(--alert-red);
+    box-shadow: 0 0 15px rgba(255, 42, 42, 0.3);
+}
+
+.stat-bar-item[title="Энергия"] .stat-bar-fill {
+    background-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.stat-bar-item[title="Сытость"] .stat-bar-fill {
+    background-color: #34d399;
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.3);
+}
+
+.stat-bar-item[title="Настроение"] .stat-bar-fill {
+    background-color: var(--ds-gold);
+    box-shadow: 0 0 15px rgba(255, 174, 0, 0.3);
+}
+
+/* Critical State */
+.stat-bar-item.critical-pulse .stat-bar {
+    border-color: var(--alert-red);
+    box-shadow: 0 0 20px rgba(255, 42, 42, 0.4);
+}
+
+.stat-bar-item.critical-pulse .stat-bar-fill {
+    animation: ds-critical-blink 0.4s infinite alternate;
+}
+
+@keyframes ds-critical-blink {
+    from {
+        opacity: 1;
+        filter: brightness(1.5);
+    }
+
+    to {
+        opacity: 0.4;
+        filter: brightness(0.8);
+    }
+}
+
+@keyframes ds-icon-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* === NAVIGATION HUB (THE CONTROL DECK) === */
+.app-nav {
+    display: flex;
+    background: #080808;
+    /* Industrial Matte */
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+    border-top: 2px solid var(--neon-cyan);
+    box-shadow:
+        0 -15px 40px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(0, 240, 255, 0.15);
+    padding: 12px 20px;
+    gap: 15px;
+    position: relative;
+    z-index: 1001;
+    overflow: visible;
+    backdrop-filter: blur(10px);
+}
+
+/* Noise Texture for the Deck */
+.app-nav::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.app-tab {
+    flex: 1;
+    padding: 15px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #4a5568;
+    /* Idle Color */
+    background: rgba(40, 40, 40, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    transform: skewX(-10deg);
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+}
+
+.app-tab i,
+.app-tab span {
+    transform: skewX(10deg);
+    transition: color 0.2s, transform 0.1s;
+}
+
+.app-tab i {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+}
+
+.app-tab span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Hover State */
+.app-tab:hover {
+    background: rgba(0, 240, 255, 0.05);
+    color: #fff;
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: inset 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+.app-tab:hover span {
+    text-shadow: 0 0 8px #fff;
+    animation: ds-glitch-text 0.3s infinite linear;
+}
+
+/* Physical Click Effect */
+.app-tab:active {
+    transform: skewX(-10deg) translateY(3px);
+    /* Mechanical Stroke */
+}
+
+/* Active State */
+.app-tab.active {
+    background: rgba(0, 240, 255, 0.15);
+    color: #fff;
+    border-color: var(--neon-cyan);
+    box-shadow:
+        0 5px 25px rgba(0, 240, 255, 0.2),
+        inset 0 0 20px rgba(0, 240, 255, 0.1);
+    transform: skewX(-10deg) translateY(1px);
+    /* Latched position */
+}
+
+.app-tab.active i {
+    opacity: 1;
+    color: #fff;
+    transform: skewX(10deg) scale(1.15);
+    /* Slightly enlarge as requested */
+    filter: drop-shadow(0 0 10px var(--neon-cyan));
+    animation: ds-icon-pulse 2s infinite ease-in-out;
+}
+
+.app-tab.active span {
+    color: var(--neon-cyan);
+}
+
+@keyframes ds-glitch-text {
+    0% {
+        transform: skewX(10deg) translate(0);
+    }
+
+    20% {
+        transform: skewX(10deg) translate(-1px, 1px);
+    }
+
+    40% {
+        transform: skewX(10deg) translate(1px, -1px);
+    }
+
+    100% {
+        transform: skewX(10deg) translate(0);
+    }
+}
+
+/* === WORKSPACE VIEWPORT === */
+.app-main {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+}
+
+.view {
+    display: none;
+    animation: viewport-entry 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.view.view-active {
+    display: block;
+}
+
+@keyframes viewport-entry {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.loading-placeholder {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--holo-cyan);
+    font-family: var(--font-holo);
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+/* === SHARED PANELS === */
+.ds-panel-glass {
+    background: rgba(8, 15, 20, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 212, 255, 0.02);
+    backdrop-filter: blur(15px);
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+}
+
+/* === SYSTEM FOOTER (STATUS LINE) === */
+.app-footer {
+    padding: 8px 15px;
+    background: #050505;
+    border-top: 1px solid rgba(0, 240, 255, 0.1);
+    position: relative;
+    z-index: 1002;
+}
+
+.footer-hud {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.64rem;
+    font-family: 'Courier Prime', monospace;
+    color: #4a5568;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-hud span:first-child::after {
+    content: '_';
+    animation: ds-cursor-blink 1s infinite;
+}
+
+/* Dynamic Status Animation via Pseudo-element */
+.footer-hud .ping-indicator {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #34d399;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 10px #34d399;
+    animation: ds-ping-blink 1.5s infinite;
+}
+
+@keyframes ds-ping-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+
+.footer-hud .status-text {
+    position: relative;
+    color: transparent;
+    padding-left: 15px;
+}
+
+.footer-hud .status-text::before {
+    content: "CONNECTED: NEURO_LINK";
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #4a5568;
+    white-space: nowrap;
+    animation: ds-status-rotate 12s infinite;
+}
+
+@keyframes ds-cursor-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes ds-status-rotate {
+
+    0%,
+    20% {
+        content: "CONNECTED: NEURO_LINK";
+        color: #4a5568;
+    }
+
+    25%,
+    45% {
+        content: "ENCRYPTING_DATA...";
+        color: var(--ds-gold);
+    }
+
+    50%,
+    70% {
+        content: "ENCRYPTED_ESTABLISHED.";
+        color: #34d399;
+    }
+
+    75%,
+    95% {
+        content: "PING: 12ms // SPB_NODE";
+        color: var(--neon-cyan);
+    }
+
+    100% {
+        content: "CONNECTED: NEURO_LINK";
+        color: #4a5568;
+    }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+    .stat-bars {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .header-stats {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .app-tab {
+        min-width: 65px;
+        padding: 12px 3px;
+    }
+
+    .app-tab span {
+        font-size: 0.5rem;
+        letter-spacing: 0;
+    }
+}

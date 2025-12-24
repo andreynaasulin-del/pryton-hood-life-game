@@ -1,0 +1,404 @@
+/**
+ * ========================================
+ * COMPONENTS: DEAD SPACE HOLOGRAPHIC
+ * Компоненты UI в индустриальном стиле
+ * ========================================
+ */
+
+/* === BUTTONS === */
+.btn {
+    padding: 12px 24px;
+    font-family: 'Orbitron', 'Courier New', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.btn i {
+    width: 16px;
+    height: 16px;
+}
+
+/* Primary - Cyan */
+.btn-primary {
+    background: linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%);
+    color: #000;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 35px rgba(0, 212, 255, 0.5);
+    filter: brightness(1.1);
+}
+
+/* Secondary - Outline */
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #00d4ff;
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: #00d4ff;
+}
+
+/* Success - Green */
+.btn-success {
+    background: linear-gradient(135deg, #008040 0%, #00ff88 100%);
+    color: #000;
+    box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+}
+
+.btn-success:hover {
+    box-shadow: 0 8px 30px rgba(0, 255, 136, 0.45);
+}
+
+/* Danger - Red */
+.btn-danger {
+    background: linear-gradient(135deg, #801030 0%, #ff3366 100%);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(255, 51, 102, 0.3);
+}
+
+.btn-danger:hover {
+    box-shadow: 0 8px 30px rgba(255, 51, 102, 0.45);
+}
+
+/* Warning - Orange */
+.btn-warning {
+    background: linear-gradient(135deg, #804020 0%, #ff6b35 100%);
+    color: #000;
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+}
+
+/* Small / Large */
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.7rem;
+}
+
+.btn-lg {
+    padding: 16px 32px;
+    font-size: 0.9rem;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* === INPUTS === */
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-label {
+    display: block;
+    font-size: 0.65rem;
+    color: rgba(0, 212, 255, 0.7);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(0, 20, 30, 0.6);
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    color: #c8dce6;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+.input-field::placeholder {
+    color: rgba(0, 212, 255, 0.3);
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #00d4ff;
+    background: rgba(0, 212, 255, 0.08);
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.15);
+}
+
+/* === CARDS === */
+.card {
+    background: rgba(8, 15, 20, 0.9);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    clip-path: polygon(0 10px, 10px 0,
+            calc(100% - 10px) 0, 100% 10px,
+            100% calc(100% - 10px), calc(100% - 10px) 100%,
+            10px 100%, 0 calc(100% - 10px));
+}
+
+.card:hover {
+    border-color: rgba(0, 212, 255, 0.35);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.card-header {
+    padding: 16px 20px;
+    background: rgba(0, 212, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+.card-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #00d4ff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-footer {
+    padding: 16px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+/* === BADGES === */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+}
+
+.badge i {
+    width: 12px;
+    height: 12px;
+}
+
+.badge-cyan {
+    background: rgba(0, 212, 255, 0.15);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #00d4ff;
+}
+
+.badge-green {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    color: #00ff88;
+}
+
+.badge-orange {
+    background: rgba(255, 107, 53, 0.1);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    color: #ff6b35;
+}
+
+.badge-red {
+    background: rgba(255, 51, 102, 0.1);
+    border: 1px solid rgba(255, 51, 102, 0.3);
+    color: #ff3366;
+}
+
+.badge-yellow {
+    background: rgba(255, 217, 61, 0.1);
+    border: 1px solid rgba(255, 217, 61, 0.3);
+    color: #ffd93d;
+}
+
+/* === PROGRESS BARS === */
+.progress {
+    height: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.progress-cyan {
+    background: linear-gradient(90deg, #006080, #00d4ff);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.progress-green {
+    background: linear-gradient(90deg, #008040, #00ff88);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.progress-orange {
+    background: linear-gradient(90deg, #804020, #ff6b35);
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+
+.progress-red {
+    background: linear-gradient(90deg, #801030, #ff3366);
+    box-shadow: 0 0 10px rgba(255, 51, 102, 0.5);
+}
+
+/* === LISTS === */
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: rgba(0, 15, 20, 0.6);
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+.list-item:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    background: rgba(0, 212, 255, 0.05);
+    transform: translateX(5px);
+}
+
+.list-item:last-child {
+    margin-bottom: 0;
+}
+
+.list-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+}
+
+.list-icon i {
+    width: 16px;
+    height: 16px;
+    color: #00d4ff;
+}
+
+.list-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.list-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #e8f4ff;
+    margin-bottom: 3px;
+}
+
+.list-subtitle {
+    font-size: 0.75rem;
+    color: rgba(0, 212, 255, 0.5);
+}
+
+/* === DIVIDERS === */
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(0, 212, 255, 0.3) 30%,
+            #00d4ff 50%,
+            rgba(0, 212, 255, 0.3) 70%,
+            transparent);
+    margin: 18px 0;
+}
+
+/* === TOOLTIPS === */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    padding: 8px 12px;
+    background: rgba(8, 15, 20, 0.98);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    font-size: 0.75rem;
+    color: #c8dce6;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    z-index: 100;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+/* === EMPTY STATE === */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(0, 212, 255, 0.4);
+}
+
+.empty-state i {
+    width: 48px;
+    height: 48px;
+    color: rgba(0, 212, 255, 0.2);
+    margin-bottom: 15px;
+}
+
+/* === LOADING === */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    color: rgba(0, 212, 255, 0.5);
+}
+
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 212, 255, 0.2);
+    border-top-color: #00d4ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

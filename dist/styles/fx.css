@@ -1,0 +1,129 @@
+/* ========================================= */
+/* 📟 SPECIAL EFFECTS & SHADERS             */
+/* ========================================= */
+
+/* 📺 CRT Scanlines Effect */
+.fx-monitor {
+    position: relative;
+    overflow: hidden;
+}
+
+.fx-monitor::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg,
+            rgba(255, 0, 0, 0.06),
+            rgba(0, 255, 0, 0.02),
+            rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* 🔦 Vignette */
+.fx-vignette {
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+}
+
+/* ⚡ Glitch Text */
+.fx-glitch {
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+        -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+        0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    animation: glitch 500ms infinite;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(0, 255, 0, 0.75);
+    }
+
+    14% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(0, 255, 0, 0.75);
+    }
+
+    15% {
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75);
+    }
+
+    100% {
+        text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.025em 0 rgba(0, 255, 0, 0.75);
+    }
+}
+
+/* 🎖️ Luxury Gold (Casino) */
+.fx-gold-text {
+    background: linear-gradient(to bottom, #cf9911 0%, #ffdd55 30%, #ff9900 60%, #ffcc33 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+}
+
+.fx-gold-border {
+    border: 1px solid;
+    border-image: linear-gradient(135deg, #cf9911, #ffdd55, #ff9900) 1;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+.fx-luxury-card {
+    background: linear-gradient(145deg, rgba(80, 60, 20, 0.4), rgba(30, 30, 20, 0.6));
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.05);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fx-luxury-card:hover {
+    border-color: rgba(251, 191, 36, 0.8);
+    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.15);
+    transform: translateY(-4px);
+}
+
+
+/* 🚨 Red Alert (Doctor) */
+.fx-alert {
+    animation: alertPulse 2s infinite;
+}
+
+@keyframes alertPulse {
+    0% {
+        box-shadow: 0 0 0px var(--accent-red);
+    }
+
+    50% {
+        box-shadow: 0 0 20px var(--accent-red);
+    }
+
+    100% {
+        box-shadow: 0 0 0px var(--accent-red);
+    }
+}
+
+/* 👾 Global Tab Transition Flash */
+.glitch-active {
+    animation: tabFlash 0.2s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes tabFlash {
+    0% {
+        opacity: 0.5;
+        filter: brightness(2);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+}

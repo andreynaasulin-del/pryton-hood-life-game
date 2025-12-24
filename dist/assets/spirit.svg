@@ -1,0 +1,47 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glitch">
+      <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" result="turbulence"/>
+      <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <linearGradient id="ghostGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#22c55e;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <g filter="url(#glitch)">
+    <!-- Main Ghost Body -->
+    <path d="M100 20 
+             C 60 20, 40 60, 40 100 
+             L 40 160 
+             Q 55 180, 70 160
+             Q 85 140, 100 160
+             Q 115 180, 130 160
+             Q 145 140, 160 160
+             L 160 100
+             C 160 60, 140 20, 100 20 Z" 
+          fill="url(#ghostGradient)" opacity="0.9">
+      <animate attributeName="d" 
+               dur="3s" 
+               repeatCount="indefinite"
+               values="M100 20 C 60 20, 40 60, 40 100 L 40 160 Q 55 180, 70 160 Q 85 140, 100 160 Q 115 180, 130 160 Q 145 140, 160 160 L 160 100 C 160 60, 140 20, 100 20 Z;
+                       M100 25 C 65 25, 45 65, 45 100 L 45 155 Q 60 175, 75 155 Q 90 135, 105 155 Q 120 175, 135 155 Q 150 135, 165 155 L 165 100 C 165 65, 145 25, 100 25 Z;
+                       M100 20 C 60 20, 40 60, 40 100 L 40 160 Q 55 180, 70 160 Q 85 140, 100 160 Q 115 180, 130 160 Q 145 140, 160 160 L 160 100 C 160 60, 140 20, 100 20 Z" />
+    </path>
+    
+    <!-- Eyes -->
+    <circle cx="80" cy="80" r="8" fill="#050505">
+        <animate attributeName="r" values="8;2;8" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="120" cy="80" r="8" fill="#050505">
+        <animate attributeName="r" values="8;2;8" dur="4s" repeatCount="indefinite" />
+    </circle>
+    
+    <!-- Glitch Lines -->
+    <rect x="30" y="50" width="140" height="2" fill="#4ade80" opacity="0.5">
+       <animate attributeName="y" from="0" to="200" dur="2s" repeatCount="indefinite" />
+       <animate attributeName="opacity" values="0;0.5;0" dur="0.1s" repeatCount="indefinite" />
+    </rect>
+  </g>
+</svg>

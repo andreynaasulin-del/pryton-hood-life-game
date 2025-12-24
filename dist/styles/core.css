@@ -1,0 +1,348 @@
+/**
+ * ========================================
+ * CORE: DEAD SPACE HOLOGRAPHIC STYLE
+ * Cyan/Teal Industrial Sci-Fi
+ * ========================================
+ */
+
+:root {
+    /* === DEAD SPACE COLORS === */
+    --ds-void: #020508;
+    --ds-dark: #0a1015;
+    --ds-darker: #050810;
+    --ds-surface: rgba(8, 15, 20, 0.9);
+    --ds-glass: rgba(0, 30, 40, 0.7);
+
+    /* === HOLOGRAPHIC CYAN (Primary) === */
+    --holo-cyan: #00d4ff;
+    --holo-cyan-dim: rgba(0, 212, 255, 0.3);
+    --holo-cyan-glow: rgba(0, 212, 255, 0.6);
+    --holo-teal: #00a8cc;
+
+    /* DS Aliases for component system */
+    --ds-cyan: var(--holo-cyan);
+    --ds-cyan-dim: rgba(0, 212, 255, 0.25);
+    --ds-cyan-glow: rgba(0, 212, 255, 0.5);
+    --ds-teal: var(--holo-teal);
+
+    /* === ACCENT COLORS === */
+    --ds-orange: #ff6b35;
+    --ds-red: #ff3366;
+    --ds-green: #00ff88;
+    --ds-yellow: #ffd93d;
+
+    /* === TEXT === */
+    --text-main: #c8dce6;
+    --text-dim: rgba(200, 220, 230, 0.5);
+    --text-bright: #e8f4ff;
+
+    /* DS Aliases */
+    --ds-text: var(--text-main);
+    --ds-text-dim: var(--text-dim);
+    --ds-text-bright: var(--text-bright);
+
+    /* === BORDERS & EFFECTS === */
+    --border-holo: rgba(0, 212, 255, 0.3);
+    --border-dim: rgba(0, 212, 255, 0.15);
+    --shadow-holo: 0 0 40px rgba(0, 212, 255, 0.15);
+    --glow-cyan: 0 0 20px rgba(0, 212, 255, 0.5);
+
+    /* DS Aliases */
+    --ds-border: var(--border-holo);
+    --ds-border-dim: var(--border-dim);
+    --ds-shadow: var(--shadow-holo);
+    --ds-glow: var(--glow-cyan);
+
+    /* === FONTS === */
+    --font-holo: 'Orbitron', 'Courier New', monospace;
+    --font-terminal: 'Courier New', monospace;
+
+    /* DS Aliases */
+    --ds-font-display: var(--font-holo);
+    --ds-font-mono: var(--font-terminal);
+}
+
+/* === GLOBAL RESET === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-terminal);
+    background: var(--ds-void);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* === BACKGROUND === */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        /* Виньетка */
+        radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.6) 100%),
+        /* Свечение сверху */
+        radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.06) 0%, transparent 50%),
+        /* Базовый градиент */
+        linear-gradient(180deg, #020810 0%, #050a10 50%, #080c14 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--ds-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--holo-cyan-dim);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--holo-cyan);
+}
+
+/* === SELECTION === */
+::selection {
+    background: rgba(0, 212, 255, 0.3);
+    color: var(--text-bright);
+}
+
+/* === LINKS === */
+a {
+    color: var(--holo-cyan);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+a:hover {
+    color: var(--text-bright);
+    text-shadow: var(--glow-cyan);
+}
+
+/* === BUTTONS BASE === */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* === INPUT BASE === */
+input,
+textarea,
+select {
+    font-family: var(--font-terminal);
+    background: rgba(0, 20, 30, 0.6);
+    border: 1px solid var(--border-holo);
+    color: var(--text-main);
+    padding: 12px 16px;
+    transition: all 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--holo-cyan);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+input::placeholder {
+    color: var(--text-dim);
+}
+
+/* === HEADINGS === */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-holo);
+    color: var(--holo-cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+h4 {
+    font-size: 0.95rem;
+}
+
+/* === UTILITY CLASSES === */
+.text-cyan {
+    color: var(--holo-cyan);
+}
+
+.text-orange {
+    color: var(--ds-orange);
+}
+
+.text-green {
+    color: var(--ds-green);
+}
+
+.text-red {
+    color: var(--ds-red);
+}
+
+.text-dim {
+    color: var(--text-dim);
+}
+
+.bg-glass {
+    background: var(--ds-glass);
+}
+
+.bg-surface {
+    background: var(--ds-surface);
+}
+
+.border-holo {
+    border: 1px solid var(--border-holo);
+}
+
+.glow-cyan {
+    box-shadow: var(--glow-cyan);
+}
+
+/* === HOLOGRAPHIC PANEL === */
+.holo-panel {
+    background: var(--ds-surface);
+    border: 1px solid var(--border-holo);
+    box-shadow: var(--shadow-holo);
+    position: relative;
+    /* Angular corners */
+    clip-path: polygon(0 12px, 12px 0,
+            calc(100% - 12px) 0, 100% 12px,
+            100% calc(100% - 12px), calc(100% - 12px) 100%,
+            12px 100%, 0 calc(100% - 12px));
+}
+
+.holo-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--holo-cyan) 30%,
+            var(--holo-teal) 50%,
+            var(--holo-cyan) 70%,
+            transparent);
+}
+
+/* === HOLOGRAPHIC BUTTON === */
+.holo-btn {
+    background: linear-gradient(180deg,
+            rgba(0, 212, 255, 0.2) 0%,
+            rgba(0, 168, 204, 0.3) 100%);
+    border: 1px solid var(--holo-cyan);
+    color: var(--text-bright);
+    padding: 12px 24px;
+    font-family: var(--font-holo);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.holo-btn:hover {
+    background: linear-gradient(180deg,
+            rgba(0, 212, 255, 0.3) 0%,
+            rgba(0, 212, 255, 0.4) 100%);
+    box-shadow: var(--glow-cyan);
+    transform: translateY(-2px);
+}
+
+.holo-btn:active {
+    transform: translateY(1px);
+}
+
+/* Orange variant */
+.holo-btn.orange {
+    border-color: var(--ds-orange);
+    background: linear-gradient(180deg,
+            rgba(255, 107, 53, 0.2) 0%,
+            rgba(200, 80, 40, 0.3) 100%);
+}
+
+.holo-btn.orange:hover {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+}
+
+/* === ANIMATIONS === */
+@keyframes pulse-cyan {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+    }
+}

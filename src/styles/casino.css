@@ -1,0 +1,1937 @@
+/**
+ * ========================================
+ * CASINO TAB: V4.0 (ULTIMATE LUXURY NOIR)
+ * Premier Spirit of the Den Establishment
+ * ========================================
+ */
+
+:root {
+    --casino-gold: #fbbf24;
+    --casino-gold-bright: #fde68a;
+    --casino-gold-dim: rgba(251, 191, 36, 0.2);
+    --casino-void: #060402;
+    --casino-surface: rgba(15, 12, 8, 0.95);
+    --casino-border: rgba(251, 191, 36, 0.15);
+}
+
+.casino-layout-v4 {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 120px);
+    padding: 25px;
+    background:
+        radial-gradient(circle at 50% -20%, rgba(251, 191, 36, 0.08) 0%, transparent 60%),
+        var(--casino-void);
+    color: #fef3c7;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* === 💎 PRESTIGE HEADER === */
+.c-header-v4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+    background: linear-gradient(90deg, rgba(20, 15, 10, 0.9), rgba(5, 5, 5, 0.8));
+    border: 1px solid var(--casino-border);
+    margin-bottom: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.c-header-v4::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, rgba(251, 191, 36, 0.05), transparent);
+    pointer-events: none;
+}
+
+.ch-label {
+    font-size: 0.65rem;
+    color: var(--casino-gold);
+    letter-spacing: 4px;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+.ch-title-v4 {
+    font-family: var(--font-holo);
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 5px 0;
+    letter-spacing: 4px;
+}
+
+.ch-user {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+}
+
+.vault-tile {
+    text-align: right;
+    padding: 10px 20px;
+    border-right: 2px solid var(--casino-gold);
+    background: rgba(251, 191, 36, 0.02);
+}
+
+.vt-label {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+}
+
+.vt-val {
+    font-family: var(--ds-font-display);
+    font-size: 1.4rem;
+    color: var(--casino-gold);
+}
+
+.vault-tile.chips {
+    border-right: none;
+    border-left: 2px solid var(--casino-gold);
+}
+
+/* === 🏛️ CASINO FLOOR GRID === */
+.c-main-row-v4 {
+    display: grid;
+    grid-template-columns: 320px 1fr 300px;
+    gap: 25px;
+    flex: 1;
+}
+
+@media (max-width: 1200px) {
+    .c-main-row-v4 {
+        grid-template-columns: 1fr;
+    }
+
+    .vip-sidebar,
+    .intel-sidebar {
+        display: none;
+    }
+}
+
+.luxury-module {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.lm-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 25px;
+    font-family: var(--font-holo);
+    font-size: 0.75rem;
+    color: var(--casino-gold);
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--casino-border);
+}
+
+.lm-header i {
+    width: 14px;
+    color: var(--casino-gold);
+}
+
+/* === 👑 VIP SIDEBAR === */
+.rep-display-v4 {
+    padding: 25px;
+    text-align: center;
+}
+
+.rd-rank {
+    font-family: var(--font-holo);
+    font-size: 1.2rem;
+    color: var(--casino-gold);
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px var(--casino-gold-dim);
+}
+
+.rd-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+}
+
+.chip-management-v4 {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ls-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px;
+    font-family: var(--font-holo);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    clip-path: var(--ds-clip-sm);
+    border: 1px solid var(--casino-border);
+}
+
+.ls-btn.primary {
+    background: var(--gold-gradient);
+    color: #000;
+}
+
+.ls-btn.ghost {
+    background: transparent;
+    color: var(--casino-gold);
+}
+
+.ls-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.2);
+}
+
+/* === 🎰 GAMES GRID === */
+.games-container {
+    background: rgba(10, 8, 5, 0.6);
+}
+
+.games-grid-v4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 25px;
+}
+
+.game-card-v4 {
+    position: relative;
+    padding: 30px;
+    background: linear-gradient(145deg, rgba(25, 20, 10, 0.6), rgba(10, 8, 5, 0.9));
+    border: 1px solid var(--casino-border);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+.gc-overlay-gold {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(251, 191, 36, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.game-card-v4:hover {
+    border-color: var(--casino-gold);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(251, 191, 36, 0.1);
+}
+
+.game-card-v4:hover .gc-overlay-gold {
+    opacity: 1;
+}
+
+.gc-icon-v4 {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.1), transparent);
+    border: 1px solid var(--casino-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.gc-icon-v4 i {
+    width: 28px;
+    height: 28px;
+    color: var(--casino-gold);
+}
+
+.gc-title-v4 {
+    font-family: var(--font-holo);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.gc-desc-v4 {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+}
+
+.gc-meta-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 0.6rem;
+    color: var(--casino-gold);
+    font-weight: 900;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.game-card-v4:hover .gc-meta-badge {
+    opacity: 1;
+    transform: translateX(-5px);
+}
+
+/* === 📊 INTEL SIDEBAR === */
+.intel-card-v4 {
+    padding: 20px 25px;
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 3px solid var(--casino-gold);
+    margin: 15px 20px;
+}
+
+.ic-hdr {
+    font-size: 0.6rem;
+    color: var(--casino-gold);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.ic-text {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.metrics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+}
+
+.m-label {
+    color: var(--text-dim);
+}
+
+.m-val {
+    font-weight: bold;
+}
+
+/* === 📥 EXCHANGE VIEW === */
+.exchange-view-v4 {
+    padding: 30px;
+}
+
+.ev-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: var(--font-holo);
+    font-size: 1.2rem;
+    color: var(--casino-gold);
+    margin-bottom: 20px;
+}
+
+.ev-intel {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 25px;
+}
+
+.ev-preview-v4 {
+    margin-top: 25px;
+    font-family: var(--font-holo);
+    color: var(--casino-gold);
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+/* === 📟 FOOTER V4 === */
+footer {
+    margin-top: 30px;
+}
+
+.cf-line {
+    height: 1px;
+    background: linear-gradient(90deg, var(--casino-gold), transparent);
+    margin-bottom: 15px;
+}
+
+.cf-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+}
+
+/* ========================================
+   BLACKJACK V4.0 (LUXURY NOIR)
+   ======================================== */
+
+.blackjack-game-v4 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 700px;
+    padding: 30px;
+    background: radial-gradient(circle at 50% 120%, rgba(251, 191, 36, 0.05) 0%, transparent 70%);
+    position: relative;
+    overflow: hidden;
+}
+
+.game-header-v4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.gh-tag {
+    font-size: 0.6rem;
+    color: var(--casino-gold);
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.gh-title {
+    font-family: var(--font-holo);
+    font-size: 2.2rem;
+    color: #fff;
+    margin: 0;
+    text-shadow: 0 0 20px var(--casino-gold-dim);
+}
+
+/* TABLE LAYOUT */
+.bj-table-v4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    perspective: 1000px;
+}
+
+.dealer-side,
+.player-side {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.side-hdr {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.side-hdr .label {
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+}
+
+.score-badge {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--casino-border);
+    padding: 4px 12px;
+    font-family: var(--font-holo);
+    color: var(--casino-gold);
+    font-size: 1.1rem;
+    min-width: 40px;
+    text-align: center;
+    box-shadow: 0 0 15px var(--casino-gold-dim);
+}
+
+.cards-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    min-height: 160px;
+    width: 100%;
+}
+
+/* CARD PROPERTY */
+.v4-card-prop {
+    width: 110px;
+    height: 160px;
+    background: #fff;
+    border-radius: 8px;
+    position: relative;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    animation: cardDealAnim 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+    animation-delay: calc(var(--card-idx) * 0.15s);
+    transform-origin: center;
+}
+
+@keyframes cardDealAnim {
+    0% {
+        transform: translateY(-200px) rotate(-20deg) scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) rotate(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.v4-card-prop.is-red {
+    color: #dc2626;
+}
+
+.v4-card-prop.is-black {
+    color: #000;
+}
+
+.v4-card-prop.is-hidden {
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+    border: 3px solid #fff;
+}
+
+.card-back-suit {
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-corner {
+    display: flex;
+    flex-direction: column;
+    font-weight: 900;
+    font-size: 1.1rem;
+    line-height: 0.9;
+}
+
+.card-corner.bottom {
+    transform: rotate(180deg);
+    align-items: flex-end;
+}
+
+.card-center-icon {
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.ghost-peek {
+    animation: ghostPulse 2s infinite !important;
+    border: 2px solid var(--holo-cyan) !important;
+    box-shadow: 0 0 30px var(--holo-cyan-glow) !important;
+}
+
+@keyframes ghostPulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: 1;
+        filter: brightness(1.5);
+    }
+}
+
+/* MESSAGE CENTER */
+.bj-message {
+    font-family: var(--font-holo);
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    padding: 15px 40px;
+    border-top: 1px solid var(--casino-border);
+    border-bottom: 1px solid var(--casino-border);
+    text-align: center;
+    width: 100%;
+    display: none;
+}
+
+.bj-message.active {
+    display: block;
+}
+
+.bj-message.win {
+    color: var(--ds-green);
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+.bj-message.lose {
+    color: var(--ds-red);
+    text-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+}
+
+.bj-message.push {
+    color: var(--accent-gold);
+}
+
+/* FOOTER HUD */
+.bj-footer-v4 {
+    display: grid;
+    grid-template-columns: 240px 1fr 280px;
+    align-items: center;
+    gap: 30px;
+    padding-top: 30px;
+    border-top: 2px solid var(--casino-border);
+}
+
+.bankroll-hud {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bh-item label {
+    font-size: 0.55rem;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+    display: block;
+}
+
+.bh-val {
+    font-family: var(--font-holo);
+    font-size: 1.4rem;
+    color: var(--casino-gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bj-controls-v4 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bj-controls-v4 .holo-btn {
+    min-width: 160px;
+    height: 54px;
+    font-size: 0.9rem;
+}
+
+.bj-special-v4 .holo-btn {
+    width: 100%;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+/* ========================================
+   SLOTS V4.0 (NEON FORTUNE)
+   ======================================== */
+
+.slots-game-v4 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 600px;
+    padding: 30px;
+    background: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.08) 0%, transparent 60%);
+}
+
+/* SLOTS ARENA */
+.slots-arena-v4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    padding: 40px 0;
+}
+
+.slots-winline {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--casino-gold), transparent);
+    transform: translateY(-50%);
+    opacity: 0.3;
+    z-index: 5;
+}
+
+.slots-machine-v4 {
+    display: flex;
+    gap: 20px;
+    padding: 30px 40px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(20, 15, 10, 0.9));
+    border: 3px solid var(--casino-gold);
+    border-radius: 20px;
+    box-shadow: 
+        0 0 30px var(--casino-gold-dim),
+        inset 0 0 50px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.slots-machine-v4::before {
+    content: '♠ FORTUNE ♠';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--casino-gold);
+    color: #000;
+    padding: 5px 25px;
+    font-family: var(--font-holo);
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    border-radius: 5px;
+}
+
+.slot-reel-v4 {
+    width: 140px;
+    height: 180px;
+    background: linear-gradient(180deg, #0a0a0a, #1a1a1a, #0a0a0a);
+    border: 2px solid rgba(251, 191, 36, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+}
+
+.slot-reel-v4 .reel-shadow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, 
+        rgba(0,0,0,0.8) 0%, 
+        transparent 30%, 
+        transparent 70%, 
+        rgba(0,0,0,0.8) 100%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Symbol wrapper - CRITICAL for sizing */
+.slot-reel-v4 .symbol-wrapper {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slot-reel-v4 .symbol-wrapper svg,
+.slot-reel-v4 .neon-icon {
+    width: 80px !important;
+    height: 80px !important;
+    max-width: 80px !important;
+    max-height: 80px !important;
+}
+
+/* Symbol colors */
+.slot-reel-v4 .symbol-wrapper.ghost { color: #a855f7; }
+.slot-reel-v4 .symbol-wrapper.seven { color: var(--casino-gold); }
+.slot-reel-v4 .symbol-wrapper.diamond { color: #3b82f6; }
+.slot-reel-v4 .symbol-wrapper.bar { color: #10b981; }
+.slot-reel-v4 .symbol-wrapper.cherry { color: #ef4444; }
+
+/* Spinning animation */
+.slot-reel-v4.spinning {
+    animation: reelSpin 0.1s linear infinite;
+}
+
+.slot-reel-v4.spinning .blur-streak {
+    width: 100%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        0deg,
+        var(--casino-gold) 0px,
+        transparent 10px,
+        transparent 20px
+    );
+    animation: blurMove 0.05s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes reelSpin {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(2px); }
+}
+
+@keyframes blurMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }
+}
+
+/* STATUS */
+.slots-status-v4 {
+    font-family: var(--font-holo);
+    font-size: 1.4rem;
+    color: var(--casino-gold);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px var(--casino-gold-dim);
+}
+
+.slots-status-v4.win {
+    color: #4ade80;
+    animation: statusPulse 0.5s ease-in-out 3;
+}
+
+.slots-status-v4.lose {
+    color: #ef4444;
+}
+
+@keyframes statusPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* FOOTER */
+.slots-footer-v4 {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    align-items: center;
+    gap: 30px;
+    padding-top: 30px;
+    border-top: 2px solid var(--casino-border);
+}
+
+.sf-bankroll label,
+.sf-bet-group label {
+    font-size: 0.55rem;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.sf-chips {
+    font-family: var(--font-holo);
+    font-size: 1.6rem;
+    color: var(--casino-gold);
+}
+
+.sf-controls {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sf-bet-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.sf-bet-group .ds-input {
+    width: 120px;
+}
+
+.spin-btn-v4 {
+    min-width: 180px;
+    height: 60px;
+    font-size: 1.1rem !important;
+}
+
+.sf-ghost .holo-btn {
+    width: 100%;
+    font-size: 0.7rem;
+}
+
+/* ========================================
+   DICE V4.0 (PROBABILITY ENGINE)
+   ======================================== */
+
+.dice-game-v4 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 600px;
+    padding: 30px;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
+}
+
+.dice-arena-v4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.dice-box-v4 {
+    display: flex;
+    gap: 40px;
+    padding: 50px 80px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(30, 41, 59, 0.8));
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.1);
+}
+
+.die-v4 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-holo);
+    font-size: 3rem;
+    font-weight: 900;
+    color: #1e293b;
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8);
+    transition: transform 0.1s;
+}
+
+.die-v4.shaking {
+    animation: dieShake 0.1s linear infinite;
+}
+
+@keyframes dieShake {
+    0%, 100% { transform: rotate(-5deg) scale(1.05); }
+    50% { transform: rotate(5deg) scale(0.95); }
+}
+
+.dice-result-v4 {
+    font-family: var(--font-holo);
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 20px 40px;
+    border: 1px solid var(--casino-border);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.dice-result-v4.win {
+    color: #4ade80;
+    border-color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+}
+
+.dice-result-v4.lose {
+    color: #ef4444;
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* FOOTER */
+.dice-footer-v4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    padding-top: 30px;
+    border-top: 2px solid var(--casino-border);
+}
+
+.dice-footer-v4 label {
+    font-size: 0.55rem;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.dice-bet-options {
+    display: flex;
+    gap: 10px;
+}
+
+.dice-bet-btn {
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--casino-border);
+    color: var(--text-dim);
+    font-family: var(--font-holo);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dice-bet-btn:hover,
+.dice-bet-btn.active {
+    border-color: var(--casino-gold);
+    color: var(--casino-gold);
+    background: rgba(251, 191, 36, 0.1);
+}
+
+.dice-bet-btn.exact.active {
+    border-color: #10b981;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.dice-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.dice-controls .bet-btn {
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--casino-border);
+    color: var(--text-dim);
+    font-family: var(--font-holo);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dice-controls .bet-btn:hover,
+.dice-controls .bet-btn.active {
+    background: var(--casino-gold);
+    color: #000;
+    border-color: var(--casino-gold);
+}
+
+.roll-btn-v4 {
+    min-width: 160px;
+    height: 56px;
+    font-size: 1rem !important;
+}
+
+.df-chips {
+    margin-top: 10px;
+    font-family: var(--font-holo);
+    font-size: 0.9rem;
+    color: var(--casino-gold);
+}
+
+/* ========================================
+   CASINO GAMES COMMON V4.0
+   ======================================== */
+
+/* Game container display */
+.c-game-view {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Common game header */
+.game-header-v4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--casino-border);
+}
+
+.gh-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gh-tag {
+    font-size: 0.6rem;
+    color: var(--casino-gold);
+    letter-spacing: 3px;
+    opacity: 0.8;
+}
+
+.gh-title {
+    font-family: var(--font-holo);
+    font-size: 2rem;
+    color: #fff;
+    margin: 0;
+    text-shadow: 0 0 20px var(--casino-gold-dim);
+}
+
+.exit-btn {
+    min-width: 140px;
+}
+
+/* OLD STYLES FALLBACK - for games not yet upgraded */
+.slots-game,
+.dice-game,
+.roulette-game,
+.thimbles-game,
+.crash-game {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    height: 100%;
+    background: var(--casino-void);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.game-header h2 {
+    font-family: var(--font-holo);
+    font-size: 1.8rem;
+    color: var(--casino-gold);
+    margin: 0;
+}
+
+.back-btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--casino-gold);
+    color: var(--casino-gold);
+    font-family: var(--font-holo);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    background: var(--casino-gold);
+    color: #000;
+}
+
+.spin-btn,
+.roll-btn {
+    padding: 15px 40px;
+    background: var(--casino-gold);
+    color: #000;
+    border: none;
+    font-family: var(--font-holo);
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.ghost-btn {
+    padding: 12px 24px;
+    background: rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(168, 85, 247, 0.5);
+    color: #a855f7;
+    font-family: var(--font-holo);
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.bet-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.bet-controls input {
+    width: 100px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--casino-border);
+    color: #fff;
+    font-family: var(--font-holo);
+    text-align: center;
+}
+
+/* ========================================
+   ROULETTE V4.0 (WHEEL OF FATE)
+   ======================================== */
+
+.roulette-game-v4 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 700px;
+    padding: 30px;
+    background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+}
+
+.roulette-arena-v4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.roulette-wheel-wrap {
+    position: relative;
+    width: 280px;
+    height: 280px;
+}
+
+.roulette-wheel-v4 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid var(--casino-gold);
+    background: radial-gradient(circle, #1a1a2e 0%, #0a0a0f 100%);
+    position: relative;
+    transition: transform 4s cubic-bezier(0.2, 0.8, 0.3, 1);
+    box-shadow: 0 0 40px var(--casino-gold-dim);
+}
+
+.roulette-pointer-v4 {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--casino-gold);
+    text-shadow: 0 0 10px var(--casino-gold);
+    z-index: 10;
+}
+
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #2d2d4a, #1a1a2e);
+    border-radius: 50%;
+    border: 3px solid var(--casino-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.wheel-center i {
+    color: var(--casino-gold);
+    width: 24px;
+    height: 24px;
+}
+
+.roulette-result-v4 {
+    font-family: var(--font-holo);
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    padding: 15px 40px;
+    border: 1px solid var(--casino-border);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+.roulette-footer-v4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    padding-top: 30px;
+    border-top: 2px solid var(--casino-border);
+}
+
+.roulette-footer-v4 label {
+    font-size: 0.55rem;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.bet-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.bet-option-v4 {
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--casino-border);
+    color: var(--text-dim);
+    font-family: var(--font-holo);
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.color-dot.red { background: #ef4444; }
+.color-dot.black { background: #1e293b; border: 1px solid #64748b; }
+.color-dot.green { background: #10b981; }
+
+.bet-option-v4:hover,
+.bet-option-v4.active {
+    border-color: var(--casino-gold);
+    color: var(--casino-gold);
+}
+
+.bet-option-v4.red.active { border-color: #ef4444; color: #ef4444; }
+.bet-option-v4.black.active { border-color: #94a3b8; color: #94a3b8; }
+.bet-option-v4.green.active { border-color: #10b981; color: #10b981; }
+
+.rf-info {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.info-item label {
+    margin-bottom: 4px;
+}
+
+.info-item span {
+    font-family: var(--font-holo);
+    font-size: 1.1rem;
+    color: var(--casino-gold);
+}
+
+.rf-bet-btns {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.rf-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.rf-chips {
+    margin-top: 10px;
+    font-family: var(--font-holo);
+    color: var(--casino-gold);
+}
+
+/* ========================================
+   THIMBLES V4.0 (SHELL GAME)
+   ======================================== */
+
+.thimbles-game-v4 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 600px;
+    padding: 30px;
+    background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 60%);
+}
+
+.thimbles-arena-v4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.thimbles-table-v4 {
+    display: flex;
+    gap: 40px;
+    padding: 50px 80px;
+    background: linear-gradient(180deg, rgba(30, 20, 40, 0.8), rgba(10, 5, 15, 0.9));
+    border: 2px solid rgba(168, 85, 247, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(168, 85, 247, 0.1);
+}
+
+.thimble-v4 {
+    width: 100px;
+    height: 140px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.thimble-v4:hover {
+    transform: translateY(-10px);
+}
+
+.thimble-cup {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(180deg, #8b5cf6, #6d28d9);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thimble-v4.lifted .thimble-cup {
+    transform: translateY(-60px) rotateX(-20deg);
+}
+
+.thimble-ball {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at 30% 30%, #fbbf24, #b45309);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.thimble-v4.has-ball .thimble-ball {
+    opacity: 1;
+}
+
+.thimble-v4.win .thimble-cup {
+    background: linear-gradient(180deg, #4ade80, #16a34a);
+}
+
+.thimble-v4.lose .thimble-cup {
+    background: linear-gradient(180deg, #ef4444, #b91c1c);
+}
+
+.thimble-v4.ghost-hint {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.8);
+}
+
+.thimbles-status-v4 {
+    font-family: var(--font-holo);
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    padding: 15px 40px;
+    border: 1px solid var(--casino-border);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+.thimbles-footer-v4 {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    align-items: center;
+    gap: 30px;
+    padding-top: 30px;
+    border-top: 2px solid var(--casino-border);
+}
+
+.thimbles-footer-v4 label {
+    font-size: 0.55rem;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.tf-controls {
+    display: flex;
+    justify-content: center;
+}
+
+.play-btn-v4 {
+    min-width: 200px;
+    height: 60px;
+    font-size: 1rem !important;
+}
+
+/* ========================================
+   CRASH V4.0 (ROCKET PROTOCOL)
+   ======================================== */
+
+.crash-game-v4 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 600px;
+    padding: 30px;
+    background: radial-gradient(circle at 50% 100%, rgba(239, 68, 68, 0.05) 0%, transparent 60%);
+}
+
+.crash-arena-v4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.crash-monitor-v4 {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(15, 23, 42, 0.9));
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.crash-grid-v4 {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(239, 68, 68, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(239, 68, 68, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.crash-rocket-v4 {
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
+    transition: all 0.1s linear;
+}
+
+.crash-rocket-v4 i {
+    width: 48px;
+    height: 48px;
+    color: #fbbf24;
+    filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.8));
+    transform: rotate(-45deg);
+}
+
+.crash-rocket-v4.flying {
+    animation: rocketFly 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes rocketFly {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(5px, -5px); }
+}
+
+.crash-rocket-v4.crashed i {
+    color: #ef4444;
+    animation: rocketCrash 0.3s ease-out;
+}
+
+@keyframes rocketCrash {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.5); }
+    100% { transform: rotate(-45deg) scale(0.5); opacity: 0.5; }
+}
+
+.crash-multiplier-v4 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-holo);
+    font-size: 4rem;
+    font-weight: 900;
+    color: #4ade80;
+    text-shadow: 0 0 30px rgba(74, 222, 128, 0.5);
+}
+
+.crash-multiplier-v4.crashed {
+    color: #ef4444;
+    text-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+}
+
+.crash-status-v4 {
+    font-family: var(--font-holo);
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    padding: 15px 40px;
+    border: 1px solid var(--casino-border);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+.crash-footer-v4 {
+    display: grid;
+    grid-template-columns: 250px 1fr 200px;
+    align-items: flex-end;
+    gap: 30px;
+    padding-top: 30px;
+    border-top: 2px solid var(--casino-border);
+}
+
+.crash-footer-v4 label {
+    font-size: 0.55rem;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.cf-bet .ds-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.quick-bets-v4 {
+    display: flex;
+    gap: 8px;
+}
+
+.quick-bet {
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--casino-border);
+    color: var(--text-dim);
+    font-family: var(--font-holo);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quick-bet:hover {
+    background: var(--casino-gold);
+    color: #000;
+    border-color: var(--casino-gold);
+}
+
+.cf-controls {
+    display: flex;
+    justify-content: center;
+}
+
+.crash-btn-v4 {
+    min-width: 180px;
+    height: 60px;
+    font-size: 1.1rem !important;
+}
+
+.cf-chips {
+    margin-top: 10px;
+    font-family: var(--font-holo);
+    color: var(--casino-gold);
+}
+
+/* ========================================
+   EXCHANGE MODAL V4.0 (CRYSTAL LEDGER)
+   ======================================== */
+
+.exchange-modal-v4 {
+    padding: 20px;
+    background: rgba(10, 8, 5, 0.4);
+    border-radius: 12px;
+}
+
+.em-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--casino-border);
+}
+
+.em-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.em-icon.buy {
+    background: rgba(251, 191, 36, 0.1);
+    color: var(--casino-gold);
+    border: 1px solid var(--casino-gold-dim);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.1);
+}
+
+.em-icon.sell {
+    background: rgba(59, 130, 246, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.1);
+}
+
+.em-title {
+    font-family: var(--font-holo);
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.em-rate {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+}
+
+.em-field {
+    margin-bottom: 20px;
+}
+
+.em-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ds-input-large {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--casino-border);
+    padding: 20px;
+    font-size: 2rem;
+    font-family: var(--font-holo);
+    color: var(--casino-gold);
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.ds-input-large:focus {
+    border-color: var(--casino-gold);
+    background: rgba(251, 191, 36, 0.05);
+    outline: none;
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.1);
+}
+
+.em-currency {
+    position: absolute;
+    right: 20px;
+    font-family: var(--font-holo);
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    pointer-events: none;
+}
+
+.em-quick-amounts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.quick-btn {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--casino-border);
+    color: var(--text-dim);
+    font-family: var(--font-holo);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.quick-btn:hover {
+    background: var(--casino-gold-dim);
+    border-color: var(--casino-gold);
+    color: var(--casino-gold);
+}
+
+.em-preview-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(20, 15, 10, 0.8));
+    border-radius: 12px;
+    border: 1px dashed var(--casino-border);
+}
+
+.preview-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.preview-item label {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+}
+
+.preview-item span {
+    font-family: var(--font-holo);
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.preview-item.result span {
+    color: var(--casino-gold);
+    text-shadow: 0 0 15px var(--casino-gold-dim);
+}
+
+.preview-arrow {
+    color: var(--casino-border);
+    width: 20px;
+    height: 20px;
+}
+
+/* ========================================
+   LOBBY MODULES V4.0
+   ======================================== */
+
+.metrics-list-v4 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.metric-row-v4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.metric-row-v4 label {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+}
+
+.metric-row-v4 .val {
+    font-family: var(--font-holo);
+    font-size: 0.9rem;
+}
+
+.intel-block-v4 {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-left: 3px solid var(--casino-gold);
+}
+
+.intel-block-v4.quote {
+    border-left-color: rgba(255, 255, 255, 0.1);
+    font-style: italic;
+    position: relative;
+    padding-top: 40px;
+}
+
+.quote-icon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.2;
+}
+
+.quote-author {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.6rem;
+    text-align: right;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+}
+
+.ch-label-top {
+    font-size: 0.6rem;
+    color: var(--casino-gold);
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.ch-label-top i {
+    width: 12px;
+    height: 12px;
+}
+
+.balance-card-v4 {
+    display: flex;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--casino-border);
+    border-radius: 12px;
+    padding: 15px 25px;
+    gap: 30px;
+}
+
+.bc-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bc-item label {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+}
+
+.bc-val {
+    font-family: var(--font-holo);
+    font-size: 1.3rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bc-item.cash .bc-val { color: #4ade80; }
+.bc-item.chips .bc-val { color: var(--casino-gold); }
+
+.bc-divider {
+    width: 1px;
+    background: var(--casino-border);
+}
+
+.security-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.ss-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+}
+
+.ss-dot.pulse {
+    box-shadow: 0 0 10px #4ade80;
+    animation: flash 2s infinite;
+}
+
+.ss-text {
+    font-size: 0.7rem;
+    font-family: var(--font-holo);
+}
+
+.small-info {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin-top: 15px;
+}
+
+.action-card[style] {
+    animation: cardEntry 0.5s ease forwards;
+    animation-delay: calc(var(--idx) * 0.1s);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes cardEntry {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

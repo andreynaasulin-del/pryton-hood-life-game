@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ДУХ ПРИТОНА // v5.1.5_JUICE</title>
+
+  <!-- Google Fonts: Orbitron, Courier Prime -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;700;900&family=Courier+Prime:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Core Modules Styles -->
+  <link rel="stylesheet" href="./styles/main-new.css?v=5.1.5_JUICE">
+  <link rel="stylesheet" href="./styles/smartphone.css?v=5.1.5_JUICE">
+  <link rel="stylesheet" href="./styles/ds-components.css?v=5.1.5_JUICE">
+  <link rel="stylesheet" href="./styles/street.css?v=5.0_FINAL">
+  <link rel="stylesheet" href="./styles/shop.css?v=5.0_FINAL">
+  <link rel="stylesheet" href="./styles/club.css?v=5.0_FINAL">
+  <link rel="stylesheet" href="./styles/prison.css?v=5.0_FINAL">
+  <link rel="stylesheet" href="./styles/doctor.css?v=5.0_FINAL">
+  <link rel="stylesheet" href="./styles/memory.css?v=5.0_FINAL">
+  <link rel="stylesheet" href="./styles/farm.css?v=5.0_FINAL">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="ds-scanlines">
+  <div class="pn-noise-layer"></div>
+  <!-- 📀 LOADING SCREEN v5.0 (NEURO-LINK) -->
+  <div id="loadingScreen" class="loading-screen active">
+    <div class="loader-content">
+      <div class="loader-logo glitch-text" data-text="PRYTON_V5">PRYTON_V5</div>
+      <div class="loader-status">УСТАНОВКА НЕЙРОСВЯЗИ...</div>
+      <div class="loader-bar-v4">
+        <div class="loader-fill"></div>
+      </div>
+      <div class="loader-meta">INTERFACE_OS: PRYTON_V5 // SYNC_STATUS: CALIBRATING</div>
+    </div>
+  </div>
+
+  <!-- 🔒 LOGIN OVERLAY v4.0 -->
+  <div id="loginOverlay" class="login-overlay active">
+    <div class="login-modal">
+      <div class="login-decoration-top"></div>
+      <div class="login-content-wrapper">
+        <div class="holo-stream left"></div>
+        <div class="holo-stream right"></div>
+
+        <div class="login-header">
+          <div class="spirit-mascot">
+            <img src="./assets/spirit-ghost.jpg" alt="Spirit" class="ghost-image">
+            <div class="mascot-glow"></div>
+          </div>
+          <h2 class="glitch-text" data-text="ДУХ ПРИТОНА">ДУХ ПРИТОНА</h2>
+          <p>ВОЙДИ В СВОЙ ТРИП</p>
+        </div>
+
+        <div class="login-tabs">
+          <button class="login-tab active" data-tab="login">ВХОД</button>
+          <button class="login-tab" data-tab="register">РЕГИСТРАЦИЯ</button>
+        </div>
+
+        <div id="loginMessage" class="login-message"></div>
+
+        <form class="login-form active" data-form="login">
+          <div class="form-group">
+            <label>ИМЯ ПО ПАСПОРТУ</label>
+            <input type="text" id="loginUsername" placeholder="USERNAME" required autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label>ШИФР ОТ СЕЙФА</label>
+            <input type="password" id="loginPassword" placeholder="PASSWORD" required autocomplete="current-password">
+          </div>
+          <button type="submit" class="login-btn">ВОЙТИ В СИСТЕМУ</button>
+        </form>
+
+        <form class="login-form" data-form="register">
+          <div class="form-group">
+            <label>НОВОЕ ПОГОНЯЛО</label>
+            <input type="text" id="registerUsername" placeholder="NEW USERNAME" required autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label>НАДЕЖНЫЙ ШИФР</label>
+            <input type="password" id="registerPassword" placeholder="NEW PASSWORD" required
+              autocomplete="new-password">
+          </div>
+          <button type="submit" class="login-btn">СОЗДАТЬ АККАУНТ</button>
+        </form>
+
+        <div class="divider"><span>ИЛИ</span></div>
+
+        <div class="login-footer">
+          <button class="telegram-btn" id="telegramBtn">
+            <i data-lucide="send"></i> TELEGRAM AUTH
+          </button>
+          <button class="guest-btn" id="guestBtn">
+            <i data-lucide="user"></i> ГОСТЕВОЙ РЕЖИМ
+          </button>
+        </div>
+      </div>
+      <div class="login-decoration-bottom"></div>
+    </div>
+  </div>
+
+  <!-- 🏙️ MAIN APP INTERFACE v4.0 -->
+  <div class="app-container" id="app">
+
+    <!-- 📡 GLOBAL TACTICAL HEADER -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="header-brand">
+          <h1 class="game-title glitch-text" data-text="ДУХ ПРИТОНА">ДУХ ПРИТОНА</h1>
+          <div class="version-tag">VISUAL_JUICE v5.1.2 // NEURO-LINK</div>
+        </div>
+
+        <div class="header-stats">
+          <div class="header-stat" id="headerDay">
+            <i data-lucide="calendar"></i>
+            <span class="stat-label">ДЕНЬ:</span>
+            <span class="stat-value">1</span>
+          </div>
+          <div class="header-stat" id="headerTime">
+            <i data-lucide="clock"></i>
+            <span class="stat-value">00:00</span>
+          </div>
+          <div class="header-stat cash" id="headerCash">
+            <i data-lucide="wallet"></i>
+            <span class="stat-value">0</span>
+            <span class="stat-symbol">₽</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 📊 VITAL PROGRESS BARS -->
+      <div class="stat-bars">
+        <div class="stat-bar-item" title="Здоровье">
+          <div class="stat-bar-label">
+            <i data-lucide="heart"></i>
+            <span id="valHealth">100</span>%
+          </div>
+          <div class="stat-bar">
+            <div class="stat-bar-fill" id="barHealth" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="stat-bar-item" title="Энергия">
+          <div class="stat-bar-label">
+            <i data-lucide="zap"></i>
+            <span id="valEnergy">100</span>%
+          </div>
+          <div class="stat-bar">
+            <div class="stat-bar-fill" id="barEnergy" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="stat-bar-item" title="Сытость">
+          <div class="stat-bar-label">
+            <i data-lucide="utensils"></i>
+            <span id="valHunger">100</span>%
+          </div>
+          <div class="stat-bar">
+            <div class="stat-bar-fill" id="barHunger" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="stat-bar-item" title="Настроение">
+          <div class="stat-bar-label">
+            <i data-lucide="smile"></i>
+            <span id="valMood">100</span>%
+          </div>
+          <div class="stat-bar">
+            <div class="stat-bar-fill" id="barMood" style="width: 100%"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 🎛️ NAVIGATION TACTICAL HUB -->
+    <nav class="app-nav">
+      <button class="app-tab active" data-view="home">
+        <i data-lucide="home"></i>
+        <span>ПРИТОН</span>
+      </button>
+      <button class="app-tab" data-view="street">
+        <i data-lucide="map-pinned"></i>
+        <span>УЛИЦА</span>
+      </button>
+      <button class="app-tab" data-view="club">
+        <i data-lucide="mic-2"></i>
+        <span>КЛУБ</span>
+      </button>
+      <button class="app-tab" data-view="farm">
+        <i data-lucide="leaf"></i>
+        <span>ФЕРМА</span>
+      </button>
+      <button class="app-tab" data-view="shop">
+        <i data-lucide="shopping-cart"></i>
+        <span>МАРКЕТ</span>
+      </button>
+      <button class="app-tab" data-view="casino">
+        <i data-lucide="clover"></i>
+        <span>КАЗИНО</span>
+      </button>
+      <button class="app-tab" data-view="doctor">
+        <i data-lucide="cross"></i>
+        <span>ДОК</span>
+      </button>
+      <button class="app-tab" data-view="prison">
+        <i data-lucide="shield-alert"></i>
+        <span>ТЮРЬМА</span>
+      </button>
+      <button class="app-tab" data-view="memory">
+        <i data-lucide="brain"></i>
+        <span>ПАМЯТЬ</span>
+      </button>
+    </nav>
+
+    <!-- 📺 WORKSPACE VIEWPORT -->
+    <div class="app-main main-views">
+      <div class="view view-active" data-view="home">
+        <div class="loading-placeholder ds-scanlines">ИНИЦИАЛИЗАЦИЯ ПОТОКА...</div>
+      </div>
+      <div class="view" data-view="farm"></div>
+      <div class="view" data-view="street"></div>
+      <div class="view" data-view="club"></div>
+      <div class="view" data-view="casino"></div>
+      <div class="view" data-view="doctor"></div>
+      <div class="view" data-view="prison"></div>
+      <div class="view" data-view="shop"></div>
+      <div class="view" data-view="memory"></div>
+    </div>
+
+    <!-- 💾 MODAL SYSTEM v4.0 -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="ds-panel-glass modal-v4">
+        <div class="modal-header-v4">
+          <i data-lucide="info"></i>
+          <h2 id="modalTitle">ВНИМАНИЕ</h2>
+        </div>
+        <div class="modal-body-v4">
+          <p id="modalText"></p>
+        </div>
+        <div class="modal-footer-v4" id="modalChoices"></div>
+      </div>
+    </div>
+
+    <!-- 📱 SMARTPHONE v4.0 -->
+    <div class="chat-overlay" id="chatOverlay">
+      <div class="ds-panel-glass phone-v4">
+        <div class="phone-header">
+          <div class="ph-left">12:00 // LTE</div>
+          <div class="ph-center">DARKGRAM</div>
+          <div class="ph-right"><i data-lucide="battery"></i></div>
+        </div>
+        <div class="phone-body">
+          <div class="chat-sidebar" id="chatSidebar"></div>
+          <div class="chat-main" id="chatMain"></div>
+        </div>
+        <button class="phone-close" id="closeChatBtn">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+    </div>
+
+    <footer class="app-footer">
+      <div class="footer-hud">
+        <span>INTERFACE_OS // v5.1.5_JUICE</span>
+        <span class="status-text"><span class="ping-indicator"></span>CONNECTED: NEURO_LINK_ESTABLISHED</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Entry Point -->
+  <script type="module" src="./scripts/main.js?v=5.1.5_JUICE"></script>
+</body>
+
+</html>

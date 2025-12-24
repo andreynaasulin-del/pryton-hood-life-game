@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Icon System Demo - ДУХ ПРИТОНА</title>
+    <link rel="stylesheet" href="../../src/styles/icons.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background: #0f172a;
+            color: #fff;
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .demo-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #3b82f6;
+            text-shadow: 0 0 10px #3b82f6;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .icon-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .icon-showcase {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .ascii-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center; font-size: 3rem; margin-bottom: 40px;">
+        🎨 Hybrid Icon System Demo
+    </h1>
+
+    <!-- Style 1: Login Epic Glitch -->
+    <div class="demo-section">
+        <div class="demo-title">1. Login Epic Glitch (Экран входа)</div>
+        <div class="icon-showcase">
+            <i data-lucide="rocket" class="icon" style="width: 64px; height: 64px; stroke-width: 1.5;
+               filter: drop-shadow(0 0 6px #3b82f6) drop-shadow(0 0 15px #3b82f6) drop-shadow(0 0 25px rgba(59, 130, 246, 0.5));
+               animation: login-epic-glitch 6s infinite;"></i>
+        </div>
+        <p style="text-align: center; color: #94a3b8;">Постоянный glitch-эффект с цветовыми артефактами</p>
+    </div>
+
+    <!-- Style 2: ASCII Contacts -->
+    <div class="demo-section">
+        <div class="demo-title">2. ASCII Terminal Style (Контакты NPC)</div>
+        <div class="ascii-grid">
+            <div class="icon-card">
+                <div class="contact-avatar-ascii">[Rx]</div>
+                <p>Барыга</p>
+            </div>
+            <div class="icon-card">
+                <div class="contact-avatar-ascii">[MD]</div>
+                <p>Док</p>
+            </div>
+            <div class="icon-card">
+                <div class="contact-avatar-ascii">[BAR]</div>
+                <p>Бармен</p>
+            </div>
+            <div class="icon-card">
+                <div class="contact-avatar-ascii">[SEC]</div>
+                <p>Охрана</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #94a3b8; margin-top: 20px;">Терминальный стиль с зелёным неоном и scan-line
+            эффектом</p>
+    </div>
+
+    <!-- Style 3: Luxury Neon (Casino) -->
+    <div class="demo-section">
+        <div class="demo-title">3. Luxury Neon Gold (Казино)</div>
+        <div class="icon-grid">
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="slot-machine" class="icon icon-xl icon-luxury"></i>
+                </div>
+                <p>Слоты</p>
+            </div>
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="dices" class="icon icon-xl icon-luxury"></i>
+                </div>
+                <p>Кости</p>
+            </div>
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="spade" class="icon icon-xl icon-luxury"></i>
+                </div>
+                <p>Блэкджек</p>
+            </div>
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="trending-up" class="icon icon-xl icon-luxury"></i>
+                </div>
+                <p>Крэш</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #94a3b8; margin-top: 20px;">Золотое свечение с пульсацией</p>
+    </div>
+
+    <!-- Style 4: Clinical Glitch (Doctor) -->
+    <div class="demo-section">
+        <div class="demo-title">4. Clinical Cyan Glitch (Доктор)</div>
+        <div class="icon-grid">
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="moon" class="icon icon-lg icon-clinical"></i>
+                </div>
+                <p>Сон</p>
+            </div>
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="brain" class="icon icon-lg icon-clinical"></i>
+                </div>
+                <p>Тревога</p>
+            </div>
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="zap" class="icon icon-lg icon-clinical"></i>
+                </div>
+                <p>Фокус</p>
+            </div>
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="shield" class="icon icon-lg icon-clinical"></i>
+                </div>
+                <p>Блокатор</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #94a3b8; margin-top: 20px;">Cyan неон с медицинским flicker-эффектом</p>
+    </div>
+
+    <!-- Style 5: Header Glitch -->
+    <div class="demo-section">
+        <div class="demo-title">5. Header Subtle Glitch (Общий UI)</div>
+        <div class="icon-grid">
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="banknote" class="icon icon-md"
+                        style="filter: drop-shadow(0 0 2px currentColor) drop-shadow(0 0 6px currentColor);"></i>
+                </div>
+                <p>Деньги</p>
+            </div>
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="heart-pulse" class="icon icon-md"
+                        style="filter: drop-shadow(0 0 2px currentColor) drop-shadow(0 0 6px currentColor);"></i>
+                </div>
+                <p>Здоровье</p>
+            </div>
+            <div class="icon-card">
+                <div class="icon-showcase">
+                    <i data-lucide="target" class="icon icon-md"
+                        style="filter: drop-shadow(0 0 2px currentColor) drop-shadow(0 0 6px currentColor);"></i>
+                </div>
+                <p>Цели</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #94a3b8; margin-top: 20px;">Легкое неоновое свечение с редкими
+            glitch-вспышками</p>
+    </div>
+
+    <script>
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+    </script>
+</body>
+
+</html>

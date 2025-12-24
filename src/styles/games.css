@@ -1,0 +1,191 @@
+/* Casino Games Styles */
+
+/* General Game Container */
+.game-interface {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Blackjack Cards */
+.blackjack-card {
+    width: 60px;
+    height: 90px;
+    background: #fff;
+    /* Default card background */
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.blackjack-card.red {
+    color: #ef4444;
+}
+
+.blackjack-card.black {
+    color: #1e293b;
+}
+
+/* Roulette */
+.roulette-wheel {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #fbbf24;
+    position: relative;
+    margin: 0 auto 20px;
+    transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    background: radial-gradient(circle, #0f172a 40%, #1e293b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fbbf24;
+}
+
+.roulette-cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.roulette-cell.red {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.roulette-cell.black {
+    background: rgba(30, 41, 59, 0.8);
+    color: #94a3b8;
+    border-color: rgba(148, 163, 184, 0.3);
+}
+
+.roulette-cell.green {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.roulette-cell.selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px currentColor;
+    border-color: currentColor;
+}
+
+/* Slots */
+.slot-machine {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #fbbf24;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.slot-reel {
+    width: 60px;
+    height: 80px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    overflow: hidden;
+}
+
+/* Crash */
+.crash-graph {
+    width: 100%;
+    height: 200px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.crash-line {
+    width: 100%;
+    height: 2px;
+    background: #10b981;
+    transform-origin: bottom left;
+    transform: scaleY(0);
+    transition: transform 0.1s linear;
+}
+
+.crash-multiplier {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.crash-multiplier.crashed {
+    color: #ef4444;
+    text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+/* Utility Classes for Dynamic Styles */
+.text-ghost {
+    color: #ff00ff !important;
+}
+
+.text-crash-flying {
+    color: #fbbf24 !important;
+}
+
+.text-crash-win {
+    color: #4ade80 !important;
+}
+
+.text-crash-loss {
+    color: #ef4444 !important;
+}
+
+/* Studio Progress Gradients */
+.progress-recording {
+    background: linear-gradient(90deg, #ef4444, #f59e0b) !important;
+}
+
+.progress-mixing {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6) !important;
+}
+
+.progress-mastering {
+    background: linear-gradient(90deg, #10b981, #3b82f6) !important;
+}
+
+.crash-win-amount {
+    font-size: 0.8em;
+    display: block;
+    line-height: 1;
+}

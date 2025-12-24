@@ -1,0 +1,192 @@
+/* =========================================
+   🎵 BEAT MAKER MINIGAME STYLES
+   Music Studio Rhythm Game
+   ========================================= */
+
+.beatmaker-game {
+    padding: 20px;
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+    border-radius: 12px;
+    border: 2px solid #3b82f6;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.beatmaker-header {
+    margin-bottom: 20px;
+}
+
+.beatmaker-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3b82f6;
+    font-family: 'Courier New', monospace;
+}
+
+.beatmaker-track {
+    position: relative;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+.beat-lane {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hit-zone {
+    width: 100px;
+    height: 80px;
+    border: 3px dashed #10b981;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+.beat {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+    transition: all 0.1s;
+    animation: moveBeat linear;
+}
+
+@keyframes moveBeat {
+    from {
+        left: -60px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+.beatmaker-controls {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.beat-btn {
+    padding: 20px 60px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.beat-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+.beat-btn:active {
+    transform: scale(0.95);
+}
+
+.beat-hint {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.beatmaker-progress {
+    height: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #10b981);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.hit-feedback {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: bold;
+    pointer-events: none;
+    animation: feedbackPop 0.5s ease-out forwards;
+}
+
+.hit-feedback.perfect {
+    color: #10b981;
+}
+
+.hit-feedback.good {
+    color: #3b82f6;
+}
+
+.hit-feedback.miss {
+    color: #ef4444;
+}
+
+@keyframes feedbackPop {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.5) translateY(-50px);
+        opacity: 0;
+    }
+}
